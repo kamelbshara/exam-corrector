@@ -19,12 +19,12 @@ distance, as long as all 4 corner markers are visible.
 import cv2
 import numpy as np
 
-from exam_pdf import render_exam_pdf, PAGE_W, PAGE_H, BUBBLE_R
+from exam_pdf import render_exam_pdf, PAGE_W, PAGE_H, ANS_BUBBLE_R
 
 CANON_SCALE = 2.0
 CANON_W = int(PAGE_W * CANON_SCALE)
 CANON_H = int(PAGE_H * CANON_SCALE)
-SAMPLE_R_PX = int((BUBBLE_R / PAGE_W) * CANON_W * 1.35)
+SAMPLE_R_PX = int((ANS_BUBBLE_R / PAGE_W) * CANON_W * 1.35)
 
 DARK_THRESHOLD = 150      # grayscale intensity below this counts as "marked"
 MIN_FILL_RATIO = 0.20     # minimum darkness fraction to count as an answer at all

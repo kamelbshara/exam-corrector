@@ -19,6 +19,7 @@ every question's math.
 Run directly to (re)write backend/data/question_bank.json:
     python3 question_bank_gen.py
 """
+import hashlib
 import json
 import os
 import random
@@ -68,19 +69,41 @@ def tex_frac(v: Fraction):
     return tex(frac_body(v))
 
 
+def _mix_seed(key):
+    """A well-mixed deterministic seed from any hashable key. Plain
+    arithmetic seeds (e.g. qid * K + C) can leave random.shuffle's output
+    correlated across consecutive qids -- SHA256 avoids that."""
+    digest = hashlib.sha256(f"mcq-{key}".encode()).digest()
+    return int.from_bytes(digest[:8], "big")
+
+
+_balanced_letter_cache = {}
+
+
+def _balanced_correct_letter(qid):
+    """Guarantees each 20-question pool has exactly 5 correct answers on
+    each of A/B/C/D -- not just a statistically-likely spread -- so no
+    single letter is ever a disproportionately good guess."""
+    pool_index = (qid - 1) // QUESTIONS_PER_POOL
+    local_index = (qid - 1) % QUESTIONS_PER_POOL
+    if pool_index not in _balanced_letter_cache:
+        seq = LETTERS * (QUESTIONS_PER_POOL // len(LETTERS))
+        random.Random(_mix_seed(f"pool-balance-{pool_index}")).shuffle(seq)
+        _balanced_letter_cache[pool_index] = seq
+    return _balanced_letter_cache[pool_index][local_index]
+
+
 def build_mcq(qid, area, cycle, text, correct, distractors, fmt=str, diagram=None):
-    """Shuffle correct + 3 distractors deterministically into A-D."""
-    values = [correct] + list(distractors)
-    rnd = random.Random(qid * 7919 + 17)
-    order = [0, 1, 2, 3]
-    rnd.shuffle(order)
-    options = {}
-    correct_letter = None
-    for pos, orig_i in enumerate(order):
-        letter = LETTERS[pos]
-        options[letter] = fmt(values[orig_i])
-        if orig_i == 0:
-            correct_letter = letter
+    """Place `correct` at a pool-balanced letter and shuffle the 3
+    distractors into the remaining letters."""
+    correct_letter = _balanced_correct_letter(qid)
+    other_letters = [l for l in LETTERS if l != correct_letter]
+    random.Random(_mix_seed(f"shuffle-{qid}")).shuffle(other_letters)
+
+    options = {correct_letter: fmt(correct)}
+    for letter, val in zip(other_letters, distractors):
+        options[letter] = fmt(val)
+
     return {
         "id": qid,
         "area": area,
@@ -148,7 +171,8 @@ def gen_numbers_c2(qid_start):
             a = rnd.randint(1, d - 1)
             b = rnd.randint(1, d - 1)
             correct = Fraction(a, d) + Fraction(b, d)
-            text = f"Calculate {tex(frac_body(Fraction(a, d)) + '+' + frac_body(Fraction(b, d)))} (simplest form)"
+            raw_frac_body = f"\\frac{{{a}}}{{{d}}}+\\frac{{{b}}}{{{d}}}"
+            text = f"Calculate {tex(raw_frac_body)} (simplest form)"
             distractors = unique_frac_distractors(correct, rnd)
             qs.append(build_mcq(qid, "numbers", 2, text, correct, distractors, tex_frac_fmt))
         elif kind == "decimal_mul":
@@ -357,7 +381,7 @@ def gen_geometry_c2(qid_start):
             diagram = diagrams.triangle_with_angles(a1, a2)
             qs.append(build_mcq(qid, "geometry", 2, text, correct, distractors, lambda v: f"{v}°", diagram=diagram))
         else:  # cube_volume
-            s = rnd.randint(2, 9)
+            s = rnd.randint(2, 13)
             correct = s ** 3
             text = f"A cube has a side length of {s} cm. What is its volume?"
             distractors = unique_int_distractors(correct, rnd, spread=max(10, correct // 4), min_val=1)
@@ -422,7 +446,7 @@ def gen_numbers_c3(qid_start):
             text = f"Write {value_str} in scientific notation."
             qs.append(build_mcq(qid, "numbers", 3, text, correct, distractors, fmt=str))
         elif kind == "radical":
-            n = rnd.choice([4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169])
+            n = rnd.choice([4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400])
             correct = int(n ** 0.5)
             sqrt_body = "\\sqrt{" + f"{n}" + "}"
             text = f"Simplify: {tex(sqrt_body)}"
@@ -510,7 +534,7 @@ def gen_functions_c3(qid_start):
             diagram = diagrams.function_graph(a, b, c=c, mark_x=x, quadratic=True)
             qs.append(build_mcq(qid, "functions", 3, text, correct, distractors, diagram=diagram))
         elif kind == "domain":
-            k = rnd.randint(2, 12)
+            k = rnd.randint(2, 30)
             correct = k
             text = f"What value must x NOT equal for {tex(f'f(x)=1/(x-{k})')} to be defined?"
             distractors = unique_int_distractors(correct, rnd, spread=5)
@@ -600,9 +624,13 @@ def gen_geometry_c3(qid_start):
         kind = templates[i % len(templates)]
         if kind == "distance":
             x1, y1 = rnd.randint(-5, 5), rnd.randint(-5, 5)
-            dx, dy = rnd.choice([3, 4, 6, 8]), rnd.choice([4, 3, 8, 6])
+            dx, dy = rnd.choice([
+                (3, 4), (4, 3), (6, 8), (8, 6), (5, 12), (12, 5),
+                (8, 15), (15, 8), (7, 24), (24, 7), (9, 12), (12, 9),
+            ])
+            dx, dy = dx * rnd.choice([1, -1]), dy * rnd.choice([1, -1])
             x2, y2 = x1 + dx, y1 + dy
-            correct = int((dx ** 2 + dy ** 2) ** 0.5)
+            correct = round((dx ** 2 + dy ** 2) ** 0.5)
             text = f"Find the distance between points {tex(f'({x1},{y1})')} and {tex(f'({x2},{y2})')}."
             distractors = unique_int_distractors(correct, rnd, spread=4, min_val=1)
             diagram = diagrams.coordinate_points_diagram((x1, y1), (x2, y2))
@@ -618,13 +646,17 @@ def gen_geometry_c3(qid_start):
             diagram = diagrams.coordinate_points_diagram((x1, y1), (x2, y2))
             qs.append(build_mcq(qid, "geometry", 3, text, correct, distractors, diagram=diagram))
         elif kind == "trig_ratio":
-            opp, hyp = rnd.choice([(3, 5), (4, 5), (6, 10), (8, 10), (5, 13), (12, 13)])
+            opp, hyp = rnd.choice([
+                (3, 5), (4, 5), (6, 10), (8, 10), (5, 13), (12, 13),
+                (7, 25), (24, 25), (9, 15), (12, 15), (8, 17), (15, 17),
+                (20, 29), (21, 29),
+            ])
             correct = Fraction(opp, hyp)
             ratio_name = rnd.choice(["sine", "cosine"])
             adj = int((hyp ** 2 - opp ** 2) ** 0.5)
             if ratio_name == "cosine":
                 correct = Fraction(adj, hyp)
-            text = f"In the right triangle shown, find the {ratio_name} of the marked angle."
+            text = f"In the right triangle shown (hypotenuse = {hyp}), find the {ratio_name} of the marked angle."
             distractors = unique_frac_distractors(correct, rnd)
             diagram = diagrams.right_triangle_diagram(opp, adj, hyp)
             qs.append(build_mcq(qid, "geometry", 3, text, correct, distractors, tex_frac_fmt, diagram=diagram))
@@ -637,8 +669,8 @@ def gen_geometry_c3(qid_start):
             diagram = diagrams.cylinder_diagram(r, h)
             qs.append(build_mcq(qid, "geometry", 3, text, correct, distractors, lambda v: f"{v} cm³", diagram=diagram))
         else:  # similarity
-            scale = rnd.choice([Fraction(1, 2), Fraction(2, 3), Fraction(3, 4), Fraction(5, 2)])
-            side = rnd.randint(4, 20)
+            scale = rnd.choice([Fraction(1, 2), Fraction(2, 3), Fraction(3, 4), Fraction(4, 5), Fraction(3, 2), Fraction(5, 2)])
+            side = rnd.randint(4, 30)
             correct = side * scale
             text = f"Two similar triangles have a scale factor of {tex_frac(scale)}. If a side of the smaller triangle is {side} cm, find the corresponding side of the larger triangle."
             distractors = unique_frac_distractors(correct, rnd)
@@ -692,7 +724,7 @@ def gen_calculus_c3(qid_start):
             diagram = diagrams.function_graph(a, b, mark_x=x0)
             qs.append(build_mcq(qid, "calculus", 3, text, correct, distractors, diagram=diagram))
         else:  # power_rule_integral
-            a = rnd.randint(2, 8)
+            a = rnd.randint(2, 14)
             n = rnd.randint(1, 4)
             new_pow = n + 1
             coef = Fraction(a, new_pow)
