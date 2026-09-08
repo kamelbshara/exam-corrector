@@ -1,0 +1,62 @@
+name: Build Exam Corrector APK
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mobile/**"
+      - ".github/workflows/build-apk.yml"
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.0"
+          channel: "stable"
+
+      - name: Scaffold platform folders (android/ios not checked in)
+        working-directory: mobile
+        run: flutter create --platforms=android --org com.examcorrector --project-name exam_corrector .
+
+      - name: Install dependencies
+        working-directory: mobile
+        run: flutter pub get
+
+      - name: Grant camera permission in AndroidManifest
+        working-directory: mobile
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          grep -q "android.permission.CAMERA" "$MANIFEST" || \
+            sed -i 's/<manifest /<manifest xmlns:tools="http:\/\/schemas.android.com\/tools" /' "$MANIFEST"
+          grep -q "android.permission.CAMERA" "$MANIFEST" || \
+            sed -i '/<\/manifest>/i\    <uses-permission android:name="android.permission.CAMERA" />\n    <uses-permission android:name="android.permission.INTERNET" />' "$MANIFEST"
+
+      - name: Build release APK
+        working-directory: mobile
+        run: flutter build apk --release
+
+      - name: Rename artifact
+        working-directory: mobile
+        run: cp build/app/outputs/flutter-apk/app-release.apk exam-corrector.apk
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: exam-corrector-apk
+          path: mobile/exam-corrector.apk
+
+      - name: Publish to latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest Exam Corrector APK
+          body: Automatically built from the latest commit to mobile/. Download exam-corrector.apk and install it (enable "install from unknown sources" on the device).
+          files: mobile/exam-corrector.apk
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

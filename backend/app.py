@@ -1,0 +1,190 @@
+"""
+Exam Generator + Exam Corrector web app. No authentication -- intended to
+run on a school's internal network / a teacher's own server.
+"""
+import io
+import os
+
+from flask import Flask, jsonify, request, send_file, render_template
+from flask_cors import CORS
+
+from curriculum import GRADES, AREA_LABELS, MAX_QUESTIONS_PER_EXAM, grades_for_cycle
+import exam_generator
+from exam_pdf import render_exam_pdf
+from omr_corrector import grade_exam, CorrectionError
+import results_store
+import report
+
+app = Flask(__name__)
+CORS(app)
+app.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024  # 32MB, generous for a few scanned pages
+
+APK_DOWNLOAD_URL = os.environ.get(
+    "APK_DOWNLOAD_URL",
+    "https://github.com/kamelbshara/exam-corrector/releases/latest/download/exam-corrector.apk",
+)
+
+
+# ---------------------------------------------------------------- pages ----
+@app.route("/")
+def index():
+    return render_template("index.html", apk_url=APK_DOWNLOAD_URL)
+
+
+@app.route("/corrector")
+def corrector_page():
+    return render_template("corrector.html", apk_url=APK_DOWNLOAD_URL)
+
+
+# ------------------------------------------------------------------ API ----
+@app.route("/api/grades", methods=["GET"])
+def api_grades():
+    out = []
+    for grade, (cycle, track, weights) in GRADES.items():
+        out.append(
+            {
+                "grade": grade,
+                "cycle": cycle,
+                "track": track,
+                "areas": {AREA_LABELS[a]: w for a, w in weights.items()},
+            }
+        )
+    out.sort(key=lambda g: (g["cycle"], g["grade"]))
+    return jsonify({"grades": out, "max_questions": MAX_QUESTIONS_PER_EXAM})
+
+
+@app.route("/api/generate-exam", methods=["POST"])
+def api_generate_exam():
+    data = request.get_json(force=True, silent=True) or {}
+    school_name = data.get("school_name", "")
+    grade = data.get("grade", "")
+    try:
+        num_questions = int(data.get("num_questions", 0))
+    except (TypeError, ValueError):
+        return jsonify({"error": "num_questions must be an integer"}), 400
+
+    try:
+        exam = exam_generator.generate_exam(school_name, grade, num_questions)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+
+    return jsonify(
+        {
+            "exam_id": exam["exam_id"],
+            "school_name": exam["school_name"],
+            "grade": exam["grade"],
+            "cycle": exam["cycle"],
+            "track": exam["track"],
+            "num_questions": exam["num_questions"],
+            "num_pages": exam["num_pages"],
+            "area_breakdown": {AREA_LABELS[a]: c for a, c in exam["area_breakdown"].items()},
+            "created_at": exam["created_at"],
+            "teacher_pdf_url": f"/api/exams/{exam['exam_id']}/pdf/teacher",
+            "student_pdf_url": f"/api/exams/{exam['exam_id']}/pdf/student",
+        }
+    )
+
+
+@app.route("/api/exams", methods=["GET"])
+def api_list_exams():
+    return jsonify({"exams": exam_generator.list_exams()})
+
+
+@app.route("/api/exams/<exam_id>", methods=["GET"])
+def api_get_exam(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    return jsonify(
+        {
+            "exam_id": exam["exam_id"],
+            "school_name": exam["school_name"],
+            "grade": exam["grade"],
+            "num_questions": exam["num_questions"],
+            "num_pages": exam["num_pages"],
+            "created_at": exam["created_at"],
+        }
+    )
+
+
+@app.route("/api/exams/<exam_id>/pdf/<flavor>", methods=["GET"])
+def api_exam_pdf(exam_id, flavor):
+    if flavor not in ("teacher", "student"):
+        return jsonify({"error": "flavor must be 'teacher' or 'student'"}), 400
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    pdf_bytes, _layout = render_exam_pdf(exam, flavor)
+    filename = f"{exam['school_name']}_{exam['grade']}_{flavor}_{exam_id}.pdf".replace(" ", "_")
+    return send_file(
+        io.BytesIO(pdf_bytes),
+        mimetype="application/pdf",
+        as_attachment=False,
+        download_name=filename,
+    )
+
+
+@app.route("/api/exams/<exam_id>/correct", methods=["POST"])
+def api_correct(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+
+    student_name = request.form.get("student_name", "")
+
+    page_images = {}
+    for key, file in request.files.items():
+        if not key.startswith("page_"):
+            continue
+        try:
+            page_num = int(key.split("_", 1)[1])
+        except ValueError:
+            continue
+        page_images[page_num] = file.read()
+
+    if not page_images:
+        return jsonify({"error": "No page images uploaded. Use form fields named page_1, page_2, ..."}), 400
+
+    try:
+        result = grade_exam(exam, page_images)
+    except CorrectionError as e:
+        return jsonify({"error": str(e)}), 422
+
+    record = results_store.save_result(exam_id, student_name, result)
+    return jsonify(record)
+
+
+@app.route("/api/exams/<exam_id>/results", methods=["GET"])
+def api_list_results(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    return jsonify({"results": results_store.list_results(exam_id)})
+
+
+@app.route("/api/exams/<exam_id>/results/export", methods=["GET"])
+def api_export_results(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    records = results_store.list_results(exam_id)
+    if not records:
+        return jsonify({"error": "No corrected sheets yet for this exam"}), 400
+    xlsx_bytes = report.build_report(exam, records)
+    filename = f"Report_{exam['school_name']}_{exam['grade']}_{exam_id}.xlsx".replace(" ", "_")
+    return send_file(
+        io.BytesIO(xlsx_bytes),
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        as_attachment=True,
+        download_name=filename,
+    )
+
+
+@app.route("/api/health", methods=["GET"])
+def health():
+    return jsonify({"status": "healthy"})
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)

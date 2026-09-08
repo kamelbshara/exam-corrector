@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam Corrector</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Math Exam Generator &amp; Corrector</div>
+  <nav>
+    <a href="/">Exam Generator</a>
+    <a href="/corrector" class="active">Exam Corrector</a>
+    <a href="{{ apk_url }}" class="apk-link">Download App (APK)</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Correct a Scanned Answer Sheet</h1>
+    <p class="subtitle">Select the exam, upload a photo or scan of each page of the student's completed answer sheet, and get an instant score with a per-topic breakdown.</p>
+
+    <label for="exam_id">Exam</label>
+    <select id="exam_id"><option value="">Loading exams...</option></select>
+    <div class="hint" id="exam-hint"></div>
+
+    <div id="upload-section" style="display:none;">
+      <label for="student_name">Student Name (optional)</label>
+      <input type="text" id="student_name" placeholder="e.g. Sara Ahmed">
+
+      <label>Answer Sheet Pages</label>
+      <div class="file-grid" id="file-inputs"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="correct-btn">Correct Sheet</button>
+      </div>
+    </div>
+
+    <div id="error-box"></div>
+  </div>
+
+  <div class="card" id="result-card" style="display:none;">
+    <h2>Result</h2>
+    <div id="result-content"></div>
+  </div>
+
+  <div class="card" id="results-list-card" style="display:none;">
+    <h2>Graded Sheets for this Exam</h2>
+    <div id="results-list"></div>
+    <div class="btn-row">
+      <a class="btn btn-accent" id="export-btn" href="#">Export Excel Report</a>
+    </div>
+  </div>
+</main>
+
+<footer>No login required &middot; Runs entirely on this server</footer>
+
+<script src="{{ url_for('static', filename='js/corrector.js') }}"></script>
+</body>
+</html>

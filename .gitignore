@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Generated runtime data (exams/results are created at runtime, not shipped)
+backend/data/exams/*.json
+backend/data/results/*/
+
+# Flutter/Dart (platform folders + build output are scaffolded by CI)
+mobile/android/
+mobile/ios/
+mobile/build/
+mobile/.dart_tool/
+mobile/.packages
+mobile/pubspec.lock
+
+# OS / editor
+.DS_Store
+*.swp

@@ -1,0 +1,3122 @@
+[
+  {
+    "id": 1,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 2/10 + 7/10 (write in simplest form)",
+    "options": {
+      "A": "4/5",
+      "B": "9/10",
+      "C": "7/10",
+      "D": "10/9"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 2,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 8.1 x 1.6",
+    "options": {
+      "A": "14.25",
+      "B": "12.96",
+      "C": "10.23",
+      "D": "7.68"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 3,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "What is 50% of 160?",
+    "options": {
+      "A": "86",
+      "B": "69",
+      "C": "74",
+      "D": "80"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 4,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate using the order of operations: 9 + 7 x 5 - 8",
+    "options": {
+      "A": "28",
+      "B": "36",
+      "C": "42",
+      "D": "40"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 5,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: (-9) + (3)",
+    "options": {
+      "A": "-10",
+      "B": "4",
+      "C": "-6",
+      "D": "-15"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 6,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Simplify the ratio 45:70 to its simplest form.",
+    "options": {
+      "A": "9:13",
+      "B": "9:15",
+      "C": "9:14",
+      "D": "10:14"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 7,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 1/8 + 2/8 (write in simplest form)",
+    "options": {
+      "A": "3/8",
+      "B": "3/4",
+      "C": "1/9",
+      "D": "5/8"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 8,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 8.6 x 8.1",
+    "options": {
+      "A": "69.66",
+      "B": "68.21",
+      "C": "68.42",
+      "D": "71.01"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 9,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "What is 50% of 120?",
+    "options": {
+      "A": "55",
+      "B": "67",
+      "C": "47",
+      "D": "60"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 10,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate using the order of operations: 4 + 2 x 9 - 2",
+    "options": {
+      "A": "28",
+      "B": "27",
+      "C": "17",
+      "D": "20"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 11,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: (-5) + (11)",
+    "options": {
+      "A": "13",
+      "B": "9",
+      "C": "6",
+      "D": "-2"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 12,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Simplify the ratio 28:32 to its simplest form.",
+    "options": {
+      "A": "7:7",
+      "B": "7:9",
+      "C": "8:8",
+      "D": "7:8"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 13,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 2/8 + 2/8 (write in simplest form)",
+    "options": {
+      "A": "0",
+      "B": "3",
+      "C": "1/2",
+      "D": "1"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 14,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 9.1 x 7.8",
+    "options": {
+      "A": "72.03",
+      "B": "74.4",
+      "C": "70.98",
+      "D": "77.58"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 15,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "What is 50% of 40?",
+    "options": {
+      "A": "18",
+      "B": "14",
+      "C": "20",
+      "D": "17"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 16,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate using the order of operations: 3 + 6 x 9 - 9",
+    "options": {
+      "A": "48",
+      "B": "49",
+      "C": "52",
+      "D": "53"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 17,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: (-10) - (13)",
+    "options": {
+      "A": "-23",
+      "B": "-22",
+      "C": "-16",
+      "D": "-28"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 18,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Simplify the ratio 45:55 to its simplest form.",
+    "options": {
+      "A": "9:11",
+      "B": "9:10",
+      "C": "10:11",
+      "D": "9:12"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 19,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 7/10 + 2/10 (write in simplest form)",
+    "options": {
+      "A": "11/10",
+      "B": "9/10",
+      "C": "7/10",
+      "D": "12/11"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 20,
+    "area": "numbers",
+    "cycle": 2,
+    "text": "Calculate: 1.4 x 3.0",
+    "options": {
+      "A": "7.18",
+      "B": "1.5",
+      "C": "4.2",
+      "D": "2.31"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 21,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 2x = 32",
+    "options": {
+      "A": "22",
+      "B": "14",
+      "C": "16",
+      "D": "17"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 22,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 2x + 12 = 34",
+    "options": {
+      "A": "11",
+      "B": "6",
+      "C": "7",
+      "D": "16"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 23,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "If x = 1, what is the value of 6x + 6?",
+    "options": {
+      "A": "17",
+      "B": "12",
+      "C": "15",
+      "D": "14"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 24,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Simplify: 3x + 5x + 5",
+    "options": {
+      "A": "6x + 5",
+      "B": "10x + 5",
+      "C": "5x + 5",
+      "D": "8x + 5"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 25,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 2x = 36",
+    "options": {
+      "A": "24",
+      "B": "15",
+      "C": "18",
+      "D": "21"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 26,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 2x + 3 = 21",
+    "options": {
+      "A": "9",
+      "B": "7",
+      "C": "14",
+      "D": "11"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 27,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "If x = 9, what is the value of 5x + 2?",
+    "options": {
+      "A": "40",
+      "B": "50",
+      "C": "54",
+      "D": "47"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 28,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Simplify: 5x + 3x + 7",
+    "options": {
+      "A": "6x + 7",
+      "B": "12x + 7",
+      "C": "9x + 7",
+      "D": "8x + 7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 29,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 8x = 48",
+    "options": {
+      "A": "6",
+      "B": "12",
+      "C": "0",
+      "D": "1"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 30,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 7x + 20 = 62",
+    "options": {
+      "A": "3",
+      "B": "7",
+      "C": "1",
+      "D": "6"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 31,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "If x = 3, what is the value of 5x + 8?",
+    "options": {
+      "A": "19",
+      "B": "23",
+      "C": "24",
+      "D": "26"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 32,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Simplify: 5x + 6x + 3",
+    "options": {
+      "A": "11x + 3",
+      "B": "7x + 3",
+      "C": "10x + 3",
+      "D": "12x + 3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 33,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 9x = 45",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "2",
+      "D": "8"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 34,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 8x + 2 = 66",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "11",
+      "D": "12"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 35,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "If x = 6, what is the value of 6x + 7?",
+    "options": {
+      "A": "43",
+      "B": "41",
+      "C": "50",
+      "D": "39"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 36,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Simplify: 3x + 2x + 3",
+    "options": {
+      "A": "5x + 3",
+      "B": "2x + 3",
+      "C": "7x + 3",
+      "D": "9x + 3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 37,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 6x = 96",
+    "options": {
+      "A": "11",
+      "B": "20",
+      "C": "16",
+      "D": "21"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 38,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Solve for x: 5x + 11 = 36",
+    "options": {
+      "A": "3",
+      "B": "8",
+      "C": "1",
+      "D": "5"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 39,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "If x = 9, what is the value of 3x + 1?",
+    "options": {
+      "A": "31",
+      "B": "28",
+      "C": "27",
+      "D": "29"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 40,
+    "area": "algebra",
+    "cycle": 2,
+    "text": "Simplify: 4x + 5x + 8",
+    "options": {
+      "A": "7x + 8",
+      "B": "8x + 8",
+      "C": "9x + 8",
+      "D": "10x + 8"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 41,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 3 and then adds 4. What is the output when the input is 2?",
+    "options": {
+      "A": "11",
+      "B": "10",
+      "C": "6",
+      "D": "16"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 42,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 7. What is the output when the input is 3?",
+    "options": {
+      "A": "18",
+      "B": "20",
+      "C": "19",
+      "D": "22"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 43,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 3 and then adds 10. What is the output when the input is 7?",
+    "options": {
+      "A": "23",
+      "B": "35",
+      "C": "31",
+      "D": "24"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 44,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 6 and then adds 7. What is the output when the input is 12?",
+    "options": {
+      "A": "78",
+      "B": "72",
+      "C": "82",
+      "D": "79"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 45,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 5 and then adds 7. What is the output when the input is 4?",
+    "options": {
+      "A": "20",
+      "B": "27",
+      "C": "21",
+      "D": "19"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 46,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 2 and then adds 6. What is the output when the input is 6?",
+    "options": {
+      "A": "12",
+      "B": "16",
+      "C": "18",
+      "D": "25"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 47,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 6 and then adds 1. What is the output when the input is 10?",
+    "options": {
+      "A": "62",
+      "B": "61",
+      "C": "69",
+      "D": "63"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 48,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 6. What is the output when the input is 9?",
+    "options": {
+      "A": "49",
+      "B": "47",
+      "C": "42",
+      "D": "40"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 49,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 7. What is the output when the input is 1?",
+    "options": {
+      "A": "16",
+      "B": "8",
+      "C": "5",
+      "D": "11"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 50,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 5 and then adds 9. What is the output when the input is 6?",
+    "options": {
+      "A": "40",
+      "B": "34",
+      "C": "39",
+      "D": "43"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 51,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 6 and then adds 5. What is the output when the input is 12?",
+    "options": {
+      "A": "80",
+      "B": "85",
+      "C": "77",
+      "D": "70"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 52,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 3 and then adds 9. What is the output when the input is 11?",
+    "options": {
+      "A": "39",
+      "B": "38",
+      "C": "42",
+      "D": "50"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 53,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 3. What is the output when the input is 8?",
+    "options": {
+      "A": "36",
+      "B": "33",
+      "C": "35",
+      "D": "30"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 54,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 5 and then adds 0. What is the output when the input is 1?",
+    "options": {
+      "A": "5",
+      "B": "1",
+      "C": "9",
+      "D": "2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 55,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 2 and then adds 10. What is the output when the input is 9?",
+    "options": {
+      "A": "27",
+      "B": "30",
+      "C": "28",
+      "D": "23"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 56,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 6 and then adds 4. What is the output when the input is 1?",
+    "options": {
+      "A": "3",
+      "B": "10",
+      "C": "14",
+      "D": "16"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 57,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 0. What is the output when the input is 7?",
+    "options": {
+      "A": "27",
+      "B": "28",
+      "C": "22",
+      "D": "32"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 58,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 5 and then adds 0. What is the output when the input is 9?",
+    "options": {
+      "A": "37",
+      "B": "53",
+      "C": "48",
+      "D": "45"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 59,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 5 and then adds 2. What is the output when the input is 5?",
+    "options": {
+      "A": "19",
+      "B": "27",
+      "C": "23",
+      "D": "21"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 60,
+    "area": "functions",
+    "cycle": 2,
+    "text": "A function machine multiplies the input by 4 and then adds 6. What is the output when the input is 3?",
+    "options": {
+      "A": "26",
+      "B": "12",
+      "C": "18",
+      "D": "24"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 61,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the mean of: 15, 15, 16, 9, 18",
+    "options": {
+      "A": "15.6",
+      "B": "12.6",
+      "C": "14.6",
+      "D": "17.6"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 62,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the median of: 9, 13, 27, 28, 32",
+    "options": {
+      "A": "33",
+      "B": "27",
+      "C": "28",
+      "D": "32"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 63,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the range of: 42, 45, 28, 30, 6, 2",
+    "options": {
+      "A": "43",
+      "B": "38",
+      "C": "41",
+      "D": "47"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 64,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "A bag has 8 equally likely balls, 7 of which are red. What is the probability of picking a red ball?",
+    "options": {
+      "A": "7/8",
+      "B": "5/8",
+      "C": "10/9",
+      "D": "1/2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 65,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the mean of: 17, 13, 17, 18, 3",
+    "options": {
+      "A": "16.6",
+      "B": "13.6",
+      "C": "11.6",
+      "D": "14.6"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 66,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the median of: 8, 10, 15, 20, 38",
+    "options": {
+      "A": "18",
+      "B": "9",
+      "C": "10",
+      "D": "15"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 67,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the range of: 33, 15, 44, 22, 9, 44",
+    "options": {
+      "A": "39",
+      "B": "31",
+      "C": "40",
+      "D": "35"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 68,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "A bag has 8 equally likely balls, 3 of which are red. What is the probability of picking a red ball?",
+    "options": {
+      "A": "3/8",
+      "B": "1/8",
+      "C": "1/2",
+      "D": "6/7"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 69,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the mean of: 18, 5, 10, 12, 5",
+    "options": {
+      "A": "12",
+      "B": "6",
+      "C": "13",
+      "D": "10"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 70,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the median of: 1, 2, 6, 20, 29",
+    "options": {
+      "A": "9",
+      "B": "4",
+      "C": "2",
+      "D": "6"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 71,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the range of: 48, 9, 17, 33, 20, 41",
+    "options": {
+      "A": "44",
+      "B": "34",
+      "C": "40",
+      "D": "39"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 72,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "A bag has 6 equally likely balls, 4 of which are red. What is the probability of picking a red ball?",
+    "options": {
+      "A": "0",
+      "B": "4/3",
+      "C": "2/3",
+      "D": "5/3"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 73,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the mean of: 7, 20, 11, 8, 2",
+    "options": {
+      "A": "9.6",
+      "B": "10.6",
+      "C": "7.6",
+      "D": "12.6"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 74,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the median of: 3, 19, 23, 24, 29",
+    "options": {
+      "A": "24",
+      "B": "23",
+      "C": "22",
+      "D": "27"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 75,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the range of: 39, 26, 40, 40, 49, 37",
+    "options": {
+      "A": "20",
+      "B": "24",
+      "C": "23",
+      "D": "18"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 76,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "A bag has 12 equally likely balls, 5 of which are red. What is the probability of picking a red ball?",
+    "options": {
+      "A": "1/4",
+      "B": "8/13",
+      "C": "1/6",
+      "D": "5/12"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 77,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the mean of: 9, 12, 7, 20, 9",
+    "options": {
+      "A": "12.4",
+      "B": "9.4",
+      "C": "11.4",
+      "D": "14.4"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 78,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the median of: 5, 15, 22, 24, 27",
+    "options": {
+      "A": "28",
+      "B": "20",
+      "C": "17",
+      "D": "22"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 79,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "Find the range of: 25, 5, 35, 25, 49, 46",
+    "options": {
+      "A": "46",
+      "B": "47",
+      "C": "44",
+      "D": "40"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 80,
+    "area": "statistics",
+    "cycle": 2,
+    "text": "A bag has 10 equally likely balls, 8 of which are red. What is the probability of picking a red ball?",
+    "options": {
+      "A": "1",
+      "B": "5/4",
+      "C": "1/5",
+      "D": "4/5"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 81,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 6 cm and width 7 cm. What is its area?",
+    "options": {
+      "A": "42 cm2",
+      "B": "46 cm2",
+      "C": "37 cm2",
+      "D": "48 cm2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 82,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 12 cm and width 12 cm. What is its perimeter?",
+    "options": {
+      "A": "41 cm",
+      "B": "48 cm",
+      "C": "53 cm",
+      "D": "43 cm"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 83,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A triangle has base 8 cm and height 3 cm. What is its area?",
+    "options": {
+      "A": "9 cm2",
+      "B": "11 cm2",
+      "C": "6 cm2",
+      "D": "12 cm2"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 84,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "In a triangle, two of the angles measure 50 degrees and 81 degrees. What is the third angle?",
+    "options": {
+      "A": "51 degrees",
+      "B": "56 degrees",
+      "C": "49 degrees",
+      "D": "48 degrees"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 85,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A cube has a side length of 7 cm. What is its volume?",
+    "options": {
+      "A": "343 cm3",
+      "B": "407 cm3",
+      "C": "328 cm3",
+      "D": "412 cm3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 86,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 6 cm and width 5 cm. What is its area?",
+    "options": {
+      "A": "30 cm2",
+      "B": "31 cm2",
+      "C": "24 cm2",
+      "D": "27 cm2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 87,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 8 cm and width 14 cm. What is its perimeter?",
+    "options": {
+      "A": "40 cm",
+      "B": "38 cm",
+      "C": "44 cm",
+      "D": "52 cm"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 88,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A triangle has base 6 cm and height 7 cm. What is its area?",
+    "options": {
+      "A": "10 cm2",
+      "B": "22 cm2",
+      "C": "21 cm2",
+      "D": "11 cm2"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 89,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "In a triangle, two of the angles measure 31 degrees and 50 degrees. What is the third angle?",
+    "options": {
+      "A": "89 degrees",
+      "B": "96 degrees",
+      "C": "98 degrees",
+      "D": "99 degrees"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 90,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A cube has a side length of 7 cm. What is its volume?",
+    "options": {
+      "A": "394 cm3",
+      "B": "391 cm3",
+      "C": "343 cm3",
+      "D": "319 cm3"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 91,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 7 cm and width 2 cm. What is its area?",
+    "options": {
+      "A": "14 cm2",
+      "B": "11 cm2",
+      "C": "15 cm2",
+      "D": "18 cm2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 92,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 9 cm and width 12 cm. What is its perimeter?",
+    "options": {
+      "A": "42 cm",
+      "B": "39 cm",
+      "C": "37 cm",
+      "D": "36 cm"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 93,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A triangle has base 4 cm and height 3 cm. What is its area?",
+    "options": {
+      "A": "7 cm2",
+      "B": "3 cm2",
+      "C": "5 cm2",
+      "D": "6 cm2"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 94,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "In a triangle, two of the angles measure 63 degrees and 95 degrees. What is the third angle?",
+    "options": {
+      "A": "22 degrees",
+      "B": "24 degrees",
+      "C": "26 degrees",
+      "D": "30 degrees"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 95,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A cube has a side length of 4 cm. What is its volume?",
+    "options": {
+      "A": "64 cm3",
+      "B": "66 cm3",
+      "C": "72 cm3",
+      "D": "63 cm3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 96,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 8 cm and width 9 cm. What is its area?",
+    "options": {
+      "A": "58 cm2",
+      "B": "72 cm2",
+      "C": "84 cm2",
+      "D": "71 cm2"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 97,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A rectangle has length 7 cm and width 10 cm. What is its perimeter?",
+    "options": {
+      "A": "27 cm",
+      "B": "38 cm",
+      "C": "36 cm",
+      "D": "34 cm"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 98,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A triangle has base 12 cm and height 7 cm. What is its area?",
+    "options": {
+      "A": "40 cm2",
+      "B": "21 cm2",
+      "C": "45 cm2",
+      "D": "42 cm2"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 99,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "In a triangle, two of the angles measure 45 degrees and 54 degrees. What is the third angle?",
+    "options": {
+      "A": "72 degrees",
+      "B": "80 degrees",
+      "C": "81 degrees",
+      "D": "87 degrees"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 100,
+    "area": "geometry",
+    "cycle": 2,
+    "text": "A cube has a side length of 5 cm. What is its volume?",
+    "options": {
+      "A": "154 cm3",
+      "B": "95 cm3",
+      "C": "129 cm3",
+      "D": "125 cm3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 101,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 0 units at time 1s and -6 units at time 4s. What is the average rate of change per second?",
+    "options": {
+      "A": "-2 units/s",
+      "B": "-5 units/s",
+      "C": "-3 units/s",
+      "D": "-3/2 units/s"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 102,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 4 units at time 2s and -2 units at time 4s. What is the average rate of change per second?",
+    "options": {
+      "A": "-4 units/s",
+      "B": "-1 units/s",
+      "C": "0 units/s",
+      "D": "-3 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 103,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 14 units at time 1s and 18 units at time 2s. What is the average rate of change per second?",
+    "options": {
+      "A": "4 units/s",
+      "B": "7/2 units/s",
+      "C": "3 units/s",
+      "D": "5 units/s"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 104,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 19 units at time 2s and 34 units at time 5s. What is the average rate of change per second?",
+    "options": {
+      "A": "5/2 units/s",
+      "B": "5 units/s",
+      "C": "4 units/s",
+      "D": "7 units/s"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 105,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 19 units at time 4s and 28 units at time 7s. What is the average rate of change per second?",
+    "options": {
+      "A": "3 units/s",
+      "B": "5 units/s",
+      "C": "4 units/s",
+      "D": "2 units/s"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 106,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 10 units at time 1s and 19 units at time 4s. What is the average rate of change per second?",
+    "options": {
+      "A": "5 units/s",
+      "B": "1 units/s",
+      "C": "6 units/s",
+      "D": "3 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 107,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 2 units at time 0s and 5 units at time 1s. What is the average rate of change per second?",
+    "options": {
+      "A": "2 units/s",
+      "B": "4 units/s",
+      "C": "0 units/s",
+      "D": "3 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 108,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 13 units at time 2s and 25 units at time 5s. What is the average rate of change per second?",
+    "options": {
+      "A": "3 units/s",
+      "B": "6 units/s",
+      "C": "1 units/s",
+      "D": "4 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 109,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 6 units at time 1s and 14 units at time 5s. What is the average rate of change per second?",
+    "options": {
+      "A": "5 units/s",
+      "B": "1 units/s",
+      "C": "4 units/s",
+      "D": "2 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 110,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 24 units at time 4s and 34 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "3 units/s",
+      "B": "4 units/s",
+      "C": "7 units/s",
+      "D": "5 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 111,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures -3 units at time 2s and -7 units at time 4s. What is the average rate of change per second?",
+    "options": {
+      "A": "1 units/s",
+      "B": "-3 units/s",
+      "C": "-4 units/s",
+      "D": "-2 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 112,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 12 units at time 2s and 18 units at time 4s. What is the average rate of change per second?",
+    "options": {
+      "A": "2 units/s",
+      "B": "3 units/s",
+      "C": "6 units/s",
+      "D": "5 units/s"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 113,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 20 units at time 4s and 30 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "7 units/s",
+      "B": "4 units/s",
+      "C": "3 units/s",
+      "D": "5 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 114,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 25 units at time 5s and 33 units at time 7s. What is the average rate of change per second?",
+    "options": {
+      "A": "2 units/s",
+      "B": "7 units/s",
+      "C": "3 units/s",
+      "D": "4 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 115,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 26 units at time 4s and 30 units at time 5s. What is the average rate of change per second?",
+    "options": {
+      "A": "5 units/s",
+      "B": "3 units/s",
+      "C": "4 units/s",
+      "D": "5/2 units/s"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 116,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures -7 units at time 4s and -11 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "-1 units/s",
+      "B": "-2 units/s",
+      "C": "-1/2 units/s",
+      "D": "-3/2 units/s"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 117,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 30 units at time 4s and 40 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "4 units/s",
+      "B": "7 units/s",
+      "C": "5 units/s",
+      "D": "3 units/s"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 118,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 17 units at time 3s and 29 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "1/2 units/s",
+      "B": "5 units/s",
+      "C": "1 units/s",
+      "D": "4 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 119,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 9 units at time 2s and 21 units at time 6s. What is the average rate of change per second?",
+    "options": {
+      "A": "3 units/s",
+      "B": "4 units/s",
+      "C": "1 units/s",
+      "D": "3/2 units/s"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 120,
+    "area": "calculus",
+    "cycle": 2,
+    "text": "A quantity measures 8 units at time 0s and 20 units at time 3s. What is the average rate of change per second?",
+    "options": {
+      "A": "1 units/s",
+      "B": "2 units/s",
+      "C": "7 units/s",
+      "D": "4 units/s"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 121,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: 4^2 x 4^2",
+    "options": {
+      "A": "228",
+      "B": "318",
+      "C": "256",
+      "D": "276"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 122,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Write 21 in scientific notation.",
+    "options": {
+      "A": "2.1 x 10^2",
+      "B": "2.1 x 10^3",
+      "C": "2.1 x 10^1",
+      "D": "2.1 x 10^0"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 123,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: sqrt(100)",
+    "options": {
+      "A": "10",
+      "B": "14",
+      "C": "7",
+      "D": "6"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 124,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Evaluate: |-4| - 2",
+    "options": {
+      "A": "2",
+      "B": "9",
+      "C": "6",
+      "D": "-4"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 125,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: 3^4 x 3^1",
+    "options": {
+      "A": "243",
+      "B": "211",
+      "C": "222",
+      "D": "216"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 126,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Write 4.7 in scientific notation.",
+    "options": {
+      "A": "4.7 x 10^2",
+      "B": "4.7 x 10^-1",
+      "C": "4.7 x 10^1",
+      "D": "4.7 x 10^0"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 127,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: sqrt(49)",
+    "options": {
+      "A": "9",
+      "B": "5",
+      "C": "3",
+      "D": "7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 128,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Evaluate: |-6| - 9",
+    "options": {
+      "A": "-9",
+      "B": "-7",
+      "C": "-3",
+      "D": "0"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 129,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: 4^4 x 4^2",
+    "options": {
+      "A": "4096",
+      "B": "3909",
+      "C": "4830",
+      "D": "4574"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 130,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Write 390 in scientific notation.",
+    "options": {
+      "A": "3.9 x 10^3",
+      "B": "3.9 x 10^2",
+      "C": "3.9 x 10^1",
+      "D": "3.9 x 10^4"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 131,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: sqrt(9)",
+    "options": {
+      "A": "7",
+      "B": "3",
+      "C": "6",
+      "D": "4"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 132,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Evaluate: |-14| - 14",
+    "options": {
+      "A": "0",
+      "B": "8",
+      "C": "-2",
+      "D": "-3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 133,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: 5^2 x 5^3",
+    "options": {
+      "A": "2792",
+      "B": "3125",
+      "C": "2480",
+      "D": "2790"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 134,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Write 0.00097 in scientific notation.",
+    "options": {
+      "A": "9.7 x 10^-5",
+      "B": "9.7 x 10^-2",
+      "C": "9.7 x 10^-4",
+      "D": "9.7 x 10^-3"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 135,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: sqrt(4)",
+    "options": {
+      "A": "6",
+      "B": "2",
+      "C": "1",
+      "D": "5"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 136,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Evaluate: |-18| - 15",
+    "options": {
+      "A": "3",
+      "B": "0",
+      "C": "-3",
+      "D": "5"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 137,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: 2^2 x 2^1",
+    "options": {
+      "A": "6",
+      "B": "12",
+      "C": "8",
+      "D": "13"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 138,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Write 9300 in scientific notation.",
+    "options": {
+      "A": "9.3 x 10^5",
+      "B": "9.3 x 10^4",
+      "C": "9.3 x 10^2",
+      "D": "9.3 x 10^3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 139,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Simplify: sqrt(49)",
+    "options": {
+      "A": "5",
+      "B": "8",
+      "C": "3",
+      "D": "7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 140,
+    "area": "numbers",
+    "cycle": 3,
+    "text": "Evaluate: |-22| - 5",
+    "options": {
+      "A": "19",
+      "B": "25",
+      "C": "17",
+      "D": "11"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 141,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve for x: x^2 + 4x - 21 = 0 (give the larger root)",
+    "options": {
+      "A": "8",
+      "B": "6",
+      "C": "3",
+      "D": "9"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 142,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve the system for x: 5x + 3y = 33, 2x - 5y = -24",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "9",
+      "D": "7"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 143,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Simplify: 3^6 / 3^5",
+    "options": {
+      "A": "10",
+      "B": "3",
+      "C": "6",
+      "D": "2"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 144,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Expand and simplify: (2x + 8)(4x + 5) -- what is the constant term?",
+    "options": {
+      "A": "35",
+      "B": "31",
+      "C": "40",
+      "D": "38"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 145,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve for x: x^2 - 15x + 56 = 0 (give the larger root)",
+    "options": {
+      "A": "13",
+      "B": "4",
+      "C": "5",
+      "D": "8"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 146,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve the system for x: 3x + 4y = -4, 2x - 4y = -16",
+    "options": {
+      "A": "2",
+      "B": "-1",
+      "C": "-3",
+      "D": "-4"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 147,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Simplify: 2^6 / 2^4",
+    "options": {
+      "A": "4",
+      "B": "11",
+      "C": "7",
+      "D": "8"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 148,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Expand and simplify: (4x + 2)(2x + 7) -- what is the constant term?",
+    "options": {
+      "A": "12",
+      "B": "18",
+      "C": "9",
+      "D": "14"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 149,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve for x: x^2 - 4x - 32 = 0 (give the larger root)",
+    "options": {
+      "A": "10",
+      "B": "4",
+      "C": "8",
+      "D": "9"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 150,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve the system for x: x + y = -1, 3x - y = 9",
+    "options": {
+      "A": "5",
+      "B": "1",
+      "C": "2",
+      "D": "6"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 151,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Simplify: 3^3 / 3^1",
+    "options": {
+      "A": "7",
+      "B": "2",
+      "C": "9",
+      "D": "5"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 152,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Expand and simplify: (4x + 3)(x + 5) -- what is the constant term?",
+    "options": {
+      "A": "15",
+      "B": "10",
+      "C": "8",
+      "D": "17"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 153,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve for x: x^2 - 5x - 24 = 0 (give the larger root)",
+    "options": {
+      "A": "5",
+      "B": "12",
+      "C": "8",
+      "D": "6"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 154,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve the system for x: 3x + 4y = 1, x - 4y = -21",
+    "options": {
+      "A": "-5",
+      "B": "-10",
+      "C": "0",
+      "D": "1"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 155,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Simplify: 5^6 / 5^2",
+    "options": {
+      "A": "673",
+      "B": "672",
+      "C": "625",
+      "D": "450"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 156,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Expand and simplify: (x + 9)(2x + 2) -- what is the constant term?",
+    "options": {
+      "A": "10",
+      "B": "22",
+      "C": "18",
+      "D": "16"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 157,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve for x: x^2 + 9x + 20 = 0 (give the larger root)",
+    "options": {
+      "A": "-7",
+      "B": "-4",
+      "C": "-9",
+      "D": "-2"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 158,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Solve the system for x: 3x + y = 32, 5x - 2y = 24",
+    "options": {
+      "A": "7",
+      "B": "13",
+      "C": "8",
+      "D": "5"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 159,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Simplify: 2^6 / 2^2",
+    "options": {
+      "A": "9",
+      "B": "16",
+      "C": "22",
+      "D": "8"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 160,
+    "area": "algebra",
+    "cycle": 3,
+    "text": "Expand and simplify: (4x + 7)(x + 3) -- what is the constant term?",
+    "options": {
+      "A": "19",
+      "B": "20",
+      "C": "16",
+      "D": "21"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 161,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 3x^2 + 0x + 4, find f(-4).",
+    "options": {
+      "A": "40",
+      "B": "52",
+      "C": "65",
+      "D": "58"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 162,
+    "area": "functions",
+    "cycle": 3,
+    "text": "What value must x NOT equal for f(x) = 1/(x - 2) to be defined?",
+    "options": {
+      "A": "2",
+      "B": "1",
+      "C": "-2",
+      "D": "6"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 163,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x + 6 and g(x) = 3x, find f(g(6)).",
+    "options": {
+      "A": "80",
+      "B": "68",
+      "C": "78",
+      "D": "83"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 164,
+    "area": "functions",
+    "cycle": 3,
+    "text": "For the linear function f(x) = 3x + 10, find the x-intercept (the value of x when f(x) = 0).",
+    "options": {
+      "A": "-7/3",
+      "B": "-13/4",
+      "C": "-3",
+      "D": "-10/3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 165,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x^2 + 2x + 2, find f(-4).",
+    "options": {
+      "A": "54",
+      "B": "66",
+      "C": "40",
+      "D": "58"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 166,
+    "area": "functions",
+    "cycle": 3,
+    "text": "What value must x NOT equal for f(x) = 1/(x - 7) to be defined?",
+    "options": {
+      "A": "7",
+      "B": "6",
+      "C": "2",
+      "D": "9"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 167,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 2x + 4 and g(x) = 3x, find f(g(2)).",
+    "options": {
+      "A": "23",
+      "B": "8",
+      "C": "11",
+      "D": "16"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 168,
+    "area": "functions",
+    "cycle": 3,
+    "text": "For the linear function f(x) = -1x + -7, find the x-intercept (the value of x when f(x) = 0).",
+    "options": {
+      "A": "-5/2",
+      "B": "-7",
+      "C": "-10",
+      "D": "-9"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 169,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x^2 + x + 2, find f(1).",
+    "options": {
+      "A": "11",
+      "B": "-1",
+      "C": "5",
+      "D": "7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 170,
+    "area": "functions",
+    "cycle": 3,
+    "text": "What value must x NOT equal for f(x) = 1/(x - 6) to be defined?",
+    "options": {
+      "A": "8",
+      "B": "6",
+      "C": "4",
+      "D": "11"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 171,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 2x + 2 and g(x) = 2x, find f(g(4)).",
+    "options": {
+      "A": "15",
+      "B": "18",
+      "C": "24",
+      "D": "10"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 172,
+    "area": "functions",
+    "cycle": 3,
+    "text": "For the linear function f(x) = 2x + 1, find the x-intercept (the value of x when f(x) = 0).",
+    "options": {
+      "A": "-1/2",
+      "B": "1",
+      "C": "1/2",
+      "D": "-2/3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 173,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 3x^2 + 5x + 4, find f(5).",
+    "options": {
+      "A": "104",
+      "B": "113",
+      "C": "123",
+      "D": "108"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 174,
+    "area": "functions",
+    "cycle": 3,
+    "text": "What value must x NOT equal for f(x) = 1/(x - 7) to be defined?",
+    "options": {
+      "A": "9",
+      "B": "11",
+      "C": "6",
+      "D": "7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 175,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x + 6 and g(x) = 4x, find f(g(6)).",
+    "options": {
+      "A": "94",
+      "B": "127",
+      "C": "102",
+      "D": "88"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 176,
+    "area": "functions",
+    "cycle": 3,
+    "text": "For the linear function f(x) = 4x + -9, find the x-intercept (the value of x when f(x) = 0).",
+    "options": {
+      "A": "2",
+      "B": "12/5",
+      "C": "9/4",
+      "D": "3"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 177,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x^2 - 2x + 3, find f(0).",
+    "options": {
+      "A": "-2",
+      "B": "3",
+      "C": "-3",
+      "D": "-1"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 178,
+    "area": "functions",
+    "cycle": 3,
+    "text": "What value must x NOT equal for f(x) = 1/(x - 10) to be defined?",
+    "options": {
+      "A": "10",
+      "B": "9",
+      "C": "8",
+      "D": "14"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 179,
+    "area": "functions",
+    "cycle": 3,
+    "text": "If f(x) = 4x + 4 and g(x) = 5x, find f(g(6)).",
+    "options": {
+      "A": "152",
+      "B": "146",
+      "C": "118",
+      "D": "124"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 180,
+    "area": "functions",
+    "cycle": 3,
+    "text": "For the linear function f(x) = -6x + -6, find the x-intercept (the value of x when f(x) = 0).",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "-2",
+      "D": "-1"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 181,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Two independent events A and B have probabilities 3/5 and 1/5. What is P(A and B)?",
+    "options": {
+      "A": "1/13",
+      "B": "1/5",
+      "C": "1/25",
+      "D": "3/25"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 182,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "In how many ways can you choose 2 items from a group of 6 items (order doesn't matter)?",
+    "options": {
+      "A": "15",
+      "B": "18",
+      "C": "8",
+      "D": "23"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 183,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Find the variance of the data set: 12, 16, 24, 34, 48 (round to 1 decimal place)",
+    "options": {
+      "A": "169.0",
+      "B": "164.5",
+      "C": "176.1",
+      "D": "172.2"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 184,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "A random variable takes values 17 (weight 2), -10 (weight 4), -5 (weight 4) out of a total weight of 10. Find its expected value (round to 2 dp).",
+    "options": {
+      "A": "2.5",
+      "B": "-2.6",
+      "C": "-0.35",
+      "D": "-6.1"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 185,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Two independent events A and B have probabilities 4/5 and 3/8. What is P(A and B)?",
+    "options": {
+      "A": "2/5",
+      "B": "3/10",
+      "C": "1/10",
+      "D": "3/5"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 186,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "In how many ways can you choose 7 items from a group of 8 items (order doesn't matter)?",
+    "options": {
+      "A": "8",
+      "B": "13",
+      "C": "6",
+      "D": "12"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 187,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Find the variance of the data set: 13, 20, 25, 49, 53 (round to 1 decimal place)",
+    "options": {
+      "A": "260.0",
+      "B": "252.3",
+      "C": "263.9",
+      "D": "256.8"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 188,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "A random variable takes values -2 (weight 3), -6 (weight 5), -5 (weight 3) out of a total weight of 11. Find its expected value (round to 2 dp).",
+    "options": {
+      "A": "-2.39",
+      "B": "-4.64",
+      "C": "0.46",
+      "D": "-8.14"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 189,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Two independent events A and B have probabilities 2/8 and 4/7. What is P(A and B)?",
+    "options": {
+      "A": "1/7",
+      "B": "-2/7",
+      "C": "2/7",
+      "D": "0"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 190,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "In how many ways can you choose 3 items from a group of 6 items (order doesn't matter)?",
+    "options": {
+      "A": "13",
+      "B": "21",
+      "C": "30",
+      "D": "20"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 191,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Find the variance of the data set: 11, 27, 31, 45, 52 (round to 1 decimal place)",
+    "options": {
+      "A": "209.0",
+      "B": "205.8",
+      "C": "212.9",
+      "D": "201.3"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 192,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "A random variable takes values -6 (weight 5), 6 (weight 3), 16 (weight 3) out of a total weight of 11. Find its expected value (round to 2 dp).",
+    "options": {
+      "A": "-0.23",
+      "B": "8.37",
+      "C": "3.27",
+      "D": "5.52"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 193,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Two independent events A and B have probabilities 4/8 and 1/5. What is P(A and B)?",
+    "options": {
+      "A": "1/10",
+      "B": "1/5",
+      "C": "-2/11",
+      "D": "-1/10"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 194,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "In how many ways can you choose 5 items from a group of 6 items (order doesn't matter)?",
+    "options": {
+      "A": "8",
+      "B": "14",
+      "C": "6",
+      "D": "2"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 195,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Find the variance of the data set: 23, 26, 36, 45, 56 (round to 1 decimal place)",
+    "options": {
+      "A": "151.8",
+      "B": "155.7",
+      "C": "144.1",
+      "D": "148.6"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 196,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "A random variable takes values -6 (weight 2), 6 (weight 5), 7 (weight 4) out of a total weight of 11. Find its expected value (round to 2 dp).",
+    "options": {
+      "A": "6.43",
+      "B": "0.68",
+      "C": "4.18",
+      "D": "9.28"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 197,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Two independent events A and B have probabilities 4/7 and 1/5. What is P(A and B)?",
+    "options": {
+      "A": "5/36",
+      "B": "4/35",
+      "C": "2/35",
+      "D": "1/18"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 198,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "In how many ways can you choose 6 items from a group of 8 items (order doesn't matter)?",
+    "options": {
+      "A": "30",
+      "B": "31",
+      "C": "35",
+      "D": "28"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 199,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "Find the variance of the data set: 19, 23, 33, 43, 59 (round to 1 decimal place)",
+    "options": {
+      "A": "211.8",
+      "B": "215.7",
+      "C": "208.6",
+      "D": "204.1"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 200,
+    "area": "statistics",
+    "cycle": 3,
+    "text": "A random variable takes values 5 (weight 4), -8 (weight 5), 12 (weight 2) out of a total weight of 11. Find its expected value (round to 2 dp).",
+    "options": {
+      "A": "0.36",
+      "B": "5.46",
+      "C": "-3.14",
+      "D": "2.61"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 201,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the distance between points (-5, 3) and (3, 11).",
+    "options": {
+      "A": "11",
+      "B": "14",
+      "C": "9",
+      "D": "7"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 202,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the slope of the line through (-3, 4) and (1, 12).",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "-1",
+      "D": "6"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 203,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "In a right triangle, the hypotenuse is 10 and the side opposite the angle is 6 (adjacent = 8). Find the cosine of the angle.",
+    "options": {
+      "A": "3/2",
+      "B": "1/2",
+      "C": "4/5",
+      "D": "1"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 204,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "A cylinder has radius 7 cm and height 13 cm. Find its volume (use pi = 3.14, round to nearest whole number).",
+    "options": {
+      "A": "2024 cm3",
+      "B": "1789 cm3",
+      "C": "2331 cm3",
+      "D": "2001 cm3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 205,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Two similar triangles have a scale factor of 1/2. If a side of the smaller triangle is 11 cm, find the corresponding side of the larger triangle (if scale factor > 1) or smaller (if < 1).",
+    "options": {
+      "A": "13 cm",
+      "B": "11/2 cm",
+      "C": "14 cm",
+      "D": "4 cm"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 206,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the distance between points (3, -2) and (11, 2).",
+    "options": {
+      "A": "11",
+      "B": "4",
+      "C": "8",
+      "D": "12"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 207,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the slope of the line through (6, -2) and (12, 22).",
+    "options": {
+      "A": "1",
+      "B": "4",
+      "C": "5",
+      "D": "3"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 208,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "In a right triangle, the hypotenuse is 10 and the side opposite the angle is 6 (adjacent = 8). Find the sine of the angle.",
+    "options": {
+      "A": "4/5",
+      "B": "3/5",
+      "C": "6/5",
+      "D": "1/2"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 209,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "A cylinder has radius 5 cm and height 4 cm. Find its volume (use pi = 3.14, round to nearest whole number).",
+    "options": {
+      "A": "275 cm3",
+      "B": "286 cm3",
+      "C": "362 cm3",
+      "D": "314 cm3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 210,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Two similar triangles have a scale factor of 1/2. If a side of the smaller triangle is 11 cm, find the corresponding side of the larger triangle (if scale factor > 1) or smaller (if < 1).",
+    "options": {
+      "A": "11/2 cm",
+      "B": "6 cm",
+      "C": "10/3 cm",
+      "D": "9/2 cm"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 211,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the distance between points (1, -1) and (5, 5).",
+    "options": {
+      "A": "5",
+      "B": "10",
+      "C": "4",
+      "D": "7"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 212,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the slope of the line through (-2, 5) and (1, -4).",
+    "options": {
+      "A": "-2",
+      "B": "-5",
+      "C": "1",
+      "D": "-3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 213,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "In a right triangle, the hypotenuse is 5 and the side opposite the angle is 4 (adjacent = 3). Find the sine of the angle.",
+    "options": {
+      "A": "1/5",
+      "B": "1/2",
+      "C": "4/5",
+      "D": "5/4"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 214,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "A cylinder has radius 3 cm and height 13 cm. Find its volume (use pi = 3.14, round to nearest whole number).",
+    "options": {
+      "A": "368 cm3",
+      "B": "366 cm3",
+      "C": "392 cm3",
+      "D": "385 cm3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 215,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Two similar triangles have a scale factor of 2/3. If a side of the smaller triangle is 13 cm, find the corresponding side of the larger triangle (if scale factor > 1) or smaller (if < 1).",
+    "options": {
+      "A": "29/2 cm",
+      "B": "9 cm",
+      "C": "26/3 cm",
+      "D": "25/2 cm"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 216,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the distance between points (0, 5) and (8, 11).",
+    "options": {
+      "A": "13",
+      "B": "6",
+      "C": "10",
+      "D": "14"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 217,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Find the slope of the line through (-4, 1) and (0, 13).",
+    "options": {
+      "A": "1",
+      "B": "7",
+      "C": "5",
+      "D": "3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 218,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "In a right triangle, the hypotenuse is 13 and the side opposite the angle is 5 (adjacent = 12). Find the cosine of the angle.",
+    "options": {
+      "A": "15/14",
+      "B": "12/13",
+      "C": "1",
+      "D": "13/12"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 219,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "A cylinder has radius 5 cm and height 6 cm. Find its volume (use pi = 3.14, round to nearest whole number).",
+    "options": {
+      "A": "471 cm3",
+      "B": "419 cm3",
+      "C": "470 cm3",
+      "D": "437 cm3"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 220,
+    "area": "geometry",
+    "cycle": 3,
+    "text": "Two similar triangles have a scale factor of 2/3. If a side of the smaller triangle is 4 cm, find the corresponding side of the larger triangle (if scale factor > 1) or smaller (if < 1).",
+    "options": {
+      "A": "9/2 cm",
+      "B": "11/3 cm",
+      "C": "8/3 cm",
+      "D": "5/3 cm"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 221,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the derivative of f(x) = 2x^3 + 8x with respect to x.",
+    "options": {
+      "A": "6x^2 + 8",
+      "B": "2x^2 + 8",
+      "C": "18x^2 + 8",
+      "D": "6x^3 + 8"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 222,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "If f(x) = 2x^2 + 5x, find f'(3).",
+    "options": {
+      "A": "6",
+      "B": "20",
+      "C": "17",
+      "D": "10"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 223,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Evaluate the limit: lim(x -> 5) of (4x + 10)",
+    "options": {
+      "A": "36",
+      "B": "29",
+      "C": "27",
+      "D": "30"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 224,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the indefinite integral of f(x) = 5x^2 with respect to x (ignore the constant of integration).",
+    "options": {
+      "A": "5/3x^2",
+      "B": "5x^3",
+      "C": "5/3x^3",
+      "D": "5/2x^3"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 225,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the derivative of f(x) = 4x^3 + 5x with respect to x.",
+    "options": {
+      "A": "12x^3 + 5",
+      "B": "36x^2 + 5",
+      "C": "12x^2 + 5",
+      "D": "4x^2 + 5"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 226,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "If f(x) = x^2 + 4x, find f'(-1).",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "-3",
+      "D": "7"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 227,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Evaluate the limit: lim(x -> 4) of (2x + 3)",
+    "options": {
+      "A": "11",
+      "B": "15",
+      "C": "6",
+      "D": "16"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 228,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the indefinite integral of f(x) = 4x^4 with respect to x (ignore the constant of integration).",
+    "options": {
+      "A": "4/5x^5",
+      "B": "4x^5",
+      "C": "4/5x^4",
+      "D": "1x^5"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 229,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the derivative of f(x) = 2x^2 + 5x with respect to x.",
+    "options": {
+      "A": "2x^1 + 5",
+      "B": "4x^2 + 5",
+      "C": "4x + 5",
+      "D": "8x^1 + 5"
+    },
+    "correct": "C"
+  },
+  {
+    "id": 230,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "If f(x) = 3x^2 - 5x, find f'(-2).",
+    "options": {
+      "A": "-18",
+      "B": "-17",
+      "C": "-20",
+      "D": "-16"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 231,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Evaluate the limit: lim(x -> 3) of (4x + 9)",
+    "options": {
+      "A": "21",
+      "B": "18",
+      "C": "24",
+      "D": "16"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 232,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the indefinite integral of f(x) = 8x^3 with respect to x (ignore the constant of integration).",
+    "options": {
+      "A": "2x^3",
+      "B": "2x^4",
+      "C": "8x^4",
+      "D": "8/3x^4"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 233,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the derivative of f(x) = 3x^3 + x with respect to x.",
+    "options": {
+      "A": "9x^2 + 1",
+      "B": "27x^2 + 1",
+      "C": "3x^2 + 1",
+      "D": "9x^3 + 1"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 234,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "If f(x) = 4x^2 - 2x, find f'(2).",
+    "options": {
+      "A": "19",
+      "B": "17",
+      "C": "13",
+      "D": "14"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 235,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Evaluate the limit: lim(x -> 5) of (5x + 10)",
+    "options": {
+      "A": "34",
+      "B": "35",
+      "C": "33",
+      "D": "40"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 236,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the indefinite integral of f(x) = 4x^2 with respect to x (ignore the constant of integration).",
+    "options": {
+      "A": "4/3x^2",
+      "B": "2x^3",
+      "C": "4x^3",
+      "D": "4/3x^3"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 237,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the derivative of f(x) = 3x^5 + 7x with respect to x.",
+    "options": {
+      "A": "15x^5 + 7",
+      "B": "15x^4 + 7",
+      "C": "75x^4 + 7",
+      "D": "3x^4 + 7"
+    },
+    "correct": "B"
+  },
+  {
+    "id": 238,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "If f(x) = 3x^2 + 5x, find f'(2).",
+    "options": {
+      "A": "17",
+      "B": "18",
+      "C": "11",
+      "D": "23"
+    },
+    "correct": "A"
+  },
+  {
+    "id": 239,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Evaluate the limit: lim(x -> 3) of (6x + 9)",
+    "options": {
+      "A": "31",
+      "B": "26",
+      "C": "29",
+      "D": "27"
+    },
+    "correct": "D"
+  },
+  {
+    "id": 240,
+    "area": "calculus",
+    "cycle": 3,
+    "text": "Find the indefinite integral of f(x) = 5x^2 with respect to x (ignore the constant of integration).",
+    "options": {
+      "A": "5x^3",
+      "B": "5/3x^3",
+      "C": "5/3x^2",
+      "D": "5/2x^3"
+    },
+    "correct": "B"
+  }
+]
