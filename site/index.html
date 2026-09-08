@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Exam Generator &amp; Corrector</title>
+<style>
+  :root {
+    --primary: #1f3a8a;
+    --primary-light: #3b5bdb;
+    --accent: #10b981;
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --text: #1a1d29;
+    --muted: #667085;
+    --border: #e2e5ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header.topbar {
+    background: var(--primary);
+    color: white;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 40px 20px 60px; }
+  .hero {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: 1.9rem; margin: 0 0 10px; }
+  .hero p { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin: 0 auto 26px; }
+  .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 13px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-accent { background: var(--accent); color: white; }
+  .cold-start-note { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 1.15rem; margin: 0 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .feature { padding: 14px; border-radius: 10px; background: #eef1fb; }
+  .feature strong { display: block; margin-bottom: 4px; color: var(--primary); }
+  footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 20px; }
+  code { background: #eef1fb; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header class="topbar">Math Exam Generator &amp; Corrector</header>
+
+<main>
+  <div class="hero">
+    <h1>Generate &amp; correct math exams automatically</h1>
+    <p>
+      Pick a grade and question count, and get an OMR-ready bubble sheet built
+      from the school's math-area weighting table &mdash; then grade photographed
+      answer sheets instantly, with a per-topic breakdown. No login required.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" id="open-app-btn" href="#" target="_blank" rel="noopener">Open the App</a>
+      <a class="btn btn-accent" id="apk-btn" href="#" target="_blank" rel="noopener">Download Android App (APK)</a>
+    </div>
+    <p class="cold-start-note">First load can take up to a minute if the app has been idle (free hosting tier spins down when unused).</p>
+  </div>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="feature">
+        <strong>Exam Generator</strong>
+        Teacher enters school name, grade, and question count (max 25). Questions are drawn from a 240-question bank and apportioned by that grade's area weights.
+      </div>
+      <div class="feature">
+        <strong>Printable bubble sheets</strong>
+        Downloads a teacher copy (answers marked + answer key) and a blank student copy, both formatted for optical scanning.
+      </div>
+      <div class="feature">
+        <strong>Exam Corrector</strong>
+        Upload a photo of a completed sheet. The exact printed bubble layout is used to perspective-correct the photo and grade it &mdash; no manual bubbling required.
+      </div>
+      <div class="feature">
+        <strong>Android app</strong>
+        Grade straight from a phone camera using the same server, with results matching the web app.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Scope</h2>
+    <p>
+      Covers Cycle 2 (General track: G5&ndash;G8) and Cycle 3 (Advanced + General
+      tracks: G9&ndash;G12) per the school's curriculum weighting table. Cycle 1
+      and Applied/Elective tracks are out of scope.
+    </p>
+  </div>
+</main>
+
+<footer>Source on <a href="https://github.com/kamelbshara/exam-corrector">GitHub</a></footer>
+
+<script>
+  // Update this if Render assigns a different subdomain than expected.
+  const APP_URL = "https://exam-corrector.onrender.com";
+  const APK_URL = "https://github.com/kamelbshara/exam-corrector/releases/latest/download/exam-corrector.apk";
+
+  document.getElementById("open-app-btn").href = APP_URL;
+  document.getElementById("apk-btn").href = APK_URL;
+</script>
+</body>
+</html>
