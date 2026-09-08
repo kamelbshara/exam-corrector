@@ -13,6 +13,7 @@ import exam_generator
 from exam_pdf import render_exam_pdf
 from omr_corrector import grade_exam, CorrectionError
 import results_store
+import roster_store
 import report
 
 app = Flask(__name__)
@@ -77,6 +78,7 @@ def api_generate_exam():
             "track": exam["track"],
             "num_questions": exam["num_questions"],
             "num_pages": exam["num_pages"],
+            "total_marks": exam.get("total_marks", exam["num_questions"]),
             "area_breakdown": {AREA_LABELS[a]: c for a, c in exam["area_breakdown"].items()},
             "created_at": exam["created_at"],
             "teacher_pdf_url": f"/api/exams/{exam['exam_id']}/pdf/teacher",
@@ -107,6 +109,27 @@ def api_get_exam(exam_id):
     )
 
 
+@app.route("/api/exams/<exam_id>/questions", methods=["GET"])
+def api_exam_questions(exam_id):
+    """Full question list (text, options, marks, diagram, correct answer)
+    for the web preview. Not linked from anywhere public -- same exposure
+    level as the teacher PDF, which already includes the answer key."""
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    return jsonify(
+        {
+            "exam_id": exam["exam_id"],
+            "school_name": exam["school_name"],
+            "grade": exam["grade"],
+            "track": exam["track"],
+            "num_questions": exam["num_questions"],
+            "total_marks": exam.get("total_marks", exam["num_questions"]),
+            "questions": exam["questions"],
+        }
+    )
+
+
 @app.route("/api/exams/<exam_id>/pdf/<flavor>", methods=["GET"])
 def api_exam_pdf(exam_id, flavor):
     if flavor not in ("teacher", "student"):
@@ -131,6 +154,7 @@ def api_correct(exam_id):
         return jsonify({"error": "Exam not found"}), 404
 
     student_name = request.form.get("student_name", "")
+    student_id = request.form.get("student_id") or None
 
     page_images = {}
     for key, file in request.files.items():
@@ -150,7 +174,7 @@ def api_correct(exam_id):
     except CorrectionError as e:
         return jsonify({"error": str(e)}), 422
 
-    record = results_store.save_result(exam_id, student_name, result)
+    record = results_store.save_result(exam_id, student_name, result, student_id=student_id)
     return jsonify(record)
 
 
@@ -160,6 +184,73 @@ def api_list_results(exam_id):
     if not exam:
         return jsonify({"error": "Exam not found"}), 404
     return jsonify({"results": results_store.list_results(exam_id)})
+
+
+@app.route("/api/exams/<exam_id>/results/<result_id>", methods=["DELETE"])
+def api_delete_result(exam_id, result_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    ok = results_store.delete_result(exam_id, result_id)
+    if not ok:
+        return jsonify({"error": "Result not found"}), 404
+    return jsonify({"deleted": True, "result_id": result_id})
+
+
+@app.route("/api/exams/<exam_id>/students", methods=["POST"])
+def api_upload_roster(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    if "file" not in request.files:
+        return jsonify({"error": "No file provided"}), 400
+    file = request.files["file"]
+    if not file.filename or not file.filename.lower().endswith((".xlsx", ".xlsm")):
+        return jsonify({"error": "Please upload an .xlsx file (column 1: name, column 2: class - optional)"}), 400
+    try:
+        students = roster_store.parse_roster_file(file.stream)
+    except Exception as e:
+        return jsonify({"error": f"Could not read the Excel file: {e}"}), 400
+    if not students:
+        return jsonify({"error": "No student names found in the file"}), 400
+    roster_store.save_roster(exam_id, students)
+    return jsonify({"students": students, "count": len(students)})
+
+
+@app.route("/api/exams/<exam_id>/students", methods=["GET"])
+def api_get_roster(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    students = roster_store.load_roster(exam_id)
+    results = results_store.list_results(exam_id)
+    latest_by_student = {}
+    for rec in results:
+        sid = rec.get("student_id")
+        if sid and sid not in latest_by_student:
+            latest_by_student[sid] = rec
+    out = []
+    for s in students:
+        rec = latest_by_student.get(s["student_id"])
+        out.append(
+            {
+                **s,
+                "graded": rec is not None,
+                "result_id": rec["result_id"] if rec else None,
+                "percentage": rec["result"]["percentage"] if rec else None,
+                "level": rec["result"]["level"] if rec else None,
+            }
+        )
+    return jsonify({"students": out})
+
+
+@app.route("/api/exams/<exam_id>/students", methods=["DELETE"])
+def api_delete_roster(exam_id):
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    roster_store.delete_roster(exam_id)
+    return jsonify({"deleted": True})
 
 
 @app.route("/api/exams/<exam_id>/results/export", methods=["GET"])

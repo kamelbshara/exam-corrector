@@ -26,18 +26,36 @@
     <div class="hint" id="exam-hint"></div>
 
     <div id="upload-section" style="display:none;">
-      <label for="student_name">Student Name (optional)</label>
+      <label for="student_name">Student Name</label>
       <input type="text" id="student_name" placeholder="e.g. Sara Ahmed">
+      <input type="hidden" id="student_id_field">
+      <div class="hint small" id="correcting-for-hint"></div>
 
       <label>Answer Sheet Pages</label>
       <div class="file-grid" id="file-inputs"></div>
 
       <div class="btn-row">
         <button class="btn btn-primary" id="correct-btn">Correct Sheet</button>
+        <button class="btn btn-outline" id="clear-selection-btn" type="button" style="display:none;">Clear Selection</button>
       </div>
     </div>
 
     <div id="error-box"></div>
+  </div>
+
+  <div class="card" id="roster-card" style="display:none;">
+    <h2>Class Roster</h2>
+    <div id="roster-upload-section">
+      <p class="subtitle">Upload the class list once (.xlsx: column 1 = student name, column 2 = class/section, optional). Then correct each student's sheet from the list below.</p>
+      <input type="file" id="roster-file" accept=".xlsx,.xlsm">
+      <div class="btn-row">
+        <button class="btn btn-primary" id="upload-roster-btn">Upload Student List</button>
+      </div>
+    </div>
+    <div id="roster-list"></div>
+    <div class="btn-row" id="roster-actions" style="display:none;">
+      <button class="btn btn-outline" id="replace-roster-btn">Replace Student List</button>
+    </div>
   </div>
 
   <div class="card" id="result-card" style="display:none;">

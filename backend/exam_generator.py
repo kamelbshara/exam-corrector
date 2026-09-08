@@ -11,7 +11,7 @@ import random
 import uuid
 from datetime import datetime, timezone
 
-from curriculum import GRADES, allocate_question_counts, AREA_LABELS
+from curriculum import GRADES, allocate_question_counts, allocate_marks, AREA_LABELS, TOTAL_MARKS
 from exam_pdf import render_exam_pdf
 
 BASE_DIR = os.path.dirname(__file__)
@@ -80,6 +80,7 @@ def generate_exam(school_name: str, grade: str, num_questions: int, seed=None):
 
     rnd.shuffle(selected)
 
+    marks = allocate_marks(len(selected))
     questions = []
     for idx, q in enumerate(selected, start=1):
         questions.append(
@@ -91,6 +92,8 @@ def generate_exam(school_name: str, grade: str, num_questions: int, seed=None):
                 "text": q["text"],
                 "options": dict(q["options"]),
                 "correct": q["correct"],
+                "marks": marks[idx - 1],
+                "diagram": q.get("diagram"),
             }
         )
 
@@ -102,6 +105,7 @@ def generate_exam(school_name: str, grade: str, num_questions: int, seed=None):
         "cycle": cycle,
         "track": track,
         "num_questions": len(questions),
+        "total_marks": TOTAL_MARKS,
         "area_breakdown": counts,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "questions": questions,

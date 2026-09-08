@@ -23,7 +23,7 @@ def build_report(exam, records):
     area_labels = {q["area"]: q["area_label"] for q in exam["questions"]}
 
     headers = ["Student Name", "Graded At"] + [f"Q{i}" for i in range(1, num_q + 1)] + \
-        ["Score", "Percentage", "Level"] + [area_labels[a] for a in areas] + ["Weak Areas"]
+        ["Correct", "Marks", "Score (/100)", "Level"] + [area_labels[a] for a in areas] + ["Weak Areas"]
 
     for col, header in enumerate(headers, 1):
         cell = ws_raw.cell(row=1, column=col, value=header)
@@ -44,6 +44,7 @@ def build_report(exam, records):
             ws_raw.cell(row, col, ans["selected"] if ans else "")
             col += 1
         ws_raw.cell(row, col, f"{result['correct']}/{result['num_questions']}"); col += 1
+        ws_raw.cell(row, col, f"{result.get('marks_earned', result['correct'])}/{result.get('total_marks', result['num_questions'])}"); col += 1
         ws_raw.cell(row, col, f"{result['percentage']}%"); col += 1
         ws_raw.cell(row, col, result["level"]); col += 1
         for a in areas:

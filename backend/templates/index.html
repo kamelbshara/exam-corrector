@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Exam Generator</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="{{ url_for('static', filename='js/vendor/mathjax/tex-svg.js') }}" id="mathjax-script"></script>
 </head>
 <body>
 <header class="topbar">
@@ -46,6 +50,15 @@
   <div class="card" id="result-card" style="display:none;">
     <h2>Exam Ready</h2>
     <div id="result-content"></div>
+  </div>
+
+  <div class="card" id="preview-card" style="display:none;">
+    <h2>Preview
+      <label class="preview-toggle small muted">
+        <input type="checkbox" id="show-answers-toggle"> Show correct answers
+      </label>
+    </h2>
+    <div id="preview-content"></div>
   </div>
 
   <div class="card">

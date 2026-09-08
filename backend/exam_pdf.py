@@ -13,17 +13,29 @@ circle detection.
 
 Coordinates are stored as fractions of the page (0-1, origin top-left) so
 they are resolution-independent.
+
+Question/option text (which contains inline LaTeX math, see
+question_bank_gen.py) is rendered to small raster images via
+mathtext_render.py and placed with drawImage, rather than reportlab's
+native (non-math) drawString -- this is what gives proper fractions,
+exponents, radicals, etc. in the printed sheet. Diagrams (also base64 PNG,
+baked into the question bank) are embedded the same way.
 """
+import base64
 import io
+
+from PIL import Image
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase.pdfmetrics import stringWidth
+
+from mathtext_render import render_to_png
 
 PAGE_W, PAGE_H = A4
 
 MARGIN = 42
 MARKER_SIZE = 16          # corner alignment squares, in points
-CONTENT_TOP_MARGIN = 42   # extra space below header before the grid starts
 COL_GAP = 18
 BUBBLE_R = 5.2
 FONT = "Helvetica"
@@ -32,20 +44,36 @@ Q_FONT_SIZE = 9
 OPT_FONT_SIZE = 8.5
 HEADER_FONT_SIZE = 9
 
+GAP_TEXT_TO_DIAGRAM = 6
+GAP_AFTER_DIAGRAM = 6
+GAP_TEXT_TO_OPTIONS = 8
+GAP_AFTER_OPTIONS = 14
+MAX_DIAGRAM_H = 92
 
-def _wrap(text, font, size, max_width):
-    words = text.split(" ")
-    lines, cur = [], ""
-    for w in words:
-        trial = (cur + " " + w).strip()
-        if stringWidth(trial, font, size) <= max_width or not cur:
-            cur = trial
+
+def _wrap_math_tokens(text, fontsize, first_width, rest_width):
+    """Greedy word-wrap using actual rendered widths of each space-separated
+    token (our LaTeX strings never contain spaces inside $...$, so a token
+    is always one atomic math expression or one plain word)."""
+    tokens = text.split(" ")
+    space_w = fontsize * 0.32
+    lines, cur, cur_w, budget = [], [], 0.0, first_width
+    for tok in tokens:
+        _png, tw, _th = render_to_png(tok, fontsize=fontsize)
+        added = tw + (space_w if cur else 0)
+        if cur and cur_w + added > budget:
+            lines.append(" ".join(cur))
+            cur, cur_w, budget = [tok], tw, rest_width
         else:
-            lines.append(cur)
-            cur = w
+            cur.append(tok)
+            cur_w += added
     if cur:
-        lines.append(cur)
+        lines.append(" ".join(cur))
     return lines
+
+
+def _render_lines(lines, fontsize):
+    return [render_to_png(line, fontsize=fontsize) for line in lines]
 
 
 def _draw_corner_markers(c):
@@ -70,6 +98,12 @@ def _to_frac(x, y):
     return (x / PAGE_W, (PAGE_H - y) / PAGE_H)
 
 
+def _draw_image(c, png_bytes, x, top_y, w, h):
+    """Draws an image with its TOP-LEFT at (x, top_y) (reportlab drawImage
+    positions by bottom-left, so we convert)."""
+    c.drawImage(ImageReader(io.BytesIO(png_bytes)), x, top_y - h, width=w, height=h, mask="auto")
+
+
 def _draw_header(c, exam, page_num, total_pages, flavor):
     top = PAGE_H - 22 - MARKER_SIZE - 10
     c.setFont(FONT_BOLD, 13)
@@ -84,7 +118,8 @@ def _draw_header(c, exam, page_num, total_pages, flavor):
     left_x = MARGIN + MARKER_SIZE + 6
     right_x = PAGE_W - MARGIN - MARKER_SIZE - 6
     c.drawString(left_x, top, f"Exam ID: {exam['exam_id']}")
-    c.drawRightString(right_x, top, f"Questions: {exam['num_questions']}")
+    total_marks = exam.get("total_marks", exam["num_questions"])
+    c.drawRightString(right_x, top, f"Questions: {exam['num_questions']}  |  Total: {total_marks} marks")
 
     top -= 16
     label = "TEACHER / ANSWER KEY COPY" if flavor == "teacher" else "STUDENT ANSWER SHEET"
@@ -114,6 +149,66 @@ def _draw_instructions(c, y, flavor):
     return y - 16
 
 
+def _prepare_question(q, col_width, opt_col_width):
+    """Renders everything for one question (text lines, diagram, options)
+    up front so we know its exact height before deciding placement."""
+    marks = q.get("marks")
+    prefix = f"Q{q['number']}. "
+    if marks is not None:
+        prefix = f"Q{q['number']}. ({marks} mark{'s' if marks != 1 else ''}) "
+    num_w = stringWidth(prefix, FONT_BOLD, Q_FONT_SIZE)
+
+    lines = _wrap_math_tokens(q["text"], Q_FONT_SIZE, col_width - num_w, col_width)
+    text_images = _render_lines(lines, Q_FONT_SIZE)
+    text_h = sum(h for _p, _w, h in text_images)
+
+    diagram_img = None
+    diagram_w = diagram_h = 0
+    if q.get("diagram"):
+        raw = base64.b64decode(q["diagram"])
+        im = Image.open(io.BytesIO(raw))
+        px_w, px_h = im.size
+        target_w = min(col_width * 0.62, px_w)
+        target_h = target_w * (px_h / px_w)
+        if target_h > MAX_DIAGRAM_H:
+            target_h = MAX_DIAGRAM_H
+            target_w = target_h * (px_w / px_h)
+        diagram_img = raw
+        diagram_w, diagram_h = target_w, target_h
+
+    letters = ["A", "B", "C", "D"]
+    max_opt_w = opt_col_width - (2 * BUBBLE_R + 6)
+    option_images = {}
+    option_row_h = [0, 0]
+    for i, letter in enumerate(letters):
+        opt_text = f"{letter}. {q['options'][letter]}"
+        opt_lines = _wrap_math_tokens(opt_text, OPT_FONT_SIZE, max_opt_w, max_opt_w)
+        imgs = _render_lines(opt_lines, OPT_FONT_SIZE)
+        option_images[letter] = imgs
+        row = i // 2
+        h = sum(im[2] for im in imgs)
+        option_row_h[row] = max(option_row_h[row], h, 14)
+
+    row_h = (
+        text_h
+        + (GAP_TEXT_TO_DIAGRAM + diagram_h + GAP_AFTER_DIAGRAM if diagram_img else GAP_TEXT_TO_OPTIONS)
+        + option_row_h[0] + 4 + option_row_h[1]
+        + GAP_AFTER_OPTIONS
+    )
+
+    return {
+        "prefix": prefix,
+        "num_w": num_w,
+        "text_images": text_images,
+        "diagram_img": diagram_img,
+        "diagram_w": diagram_w,
+        "diagram_h": diagram_h,
+        "option_images": option_images,
+        "option_row_h": option_row_h,
+        "row_h": row_h,
+    }
+
+
 def render_exam_pdf(exam, flavor="student"):
     """Returns (pdf_bytes, layout) where layout records the page/x/y
     fraction of every bubble for use by the OMR corrector."""
@@ -130,39 +225,28 @@ def render_exam_pdf(exam, flavor="student"):
 
     bottom_limit = 22 + MARKER_SIZE + 18
 
-    TEXT_LINE_H = 11
-    GAP_TEXT_TO_OPTIONS = 9
-    OPTION_ROW_H = 16
-    GAP_AFTER_OPTIONS = 16
-
-    def question_row_height(lines):
-        return len(lines) * TEXT_LINE_H + GAP_TEXT_TO_OPTIONS + 2 * OPTION_ROW_H + GAP_AFTER_OPTIONS
+    prepared = [_prepare_question(q, col_width, opt_col_width) for q in questions]
 
     layout_questions = {}
     markers_by_page = []
 
-    # First pass to know page count isn't trivial without simulating layout,
-    # so we simulate first, then render with the known total page count.
     def simulate():
         page = 1
         col = 0
-        y = PAGE_H - 170  # approx header height, refined below per real header
+        y0 = PAGE_H - 178
         pages = 1
-        col_x = [left_x, left_x + col_width + COL_GAP]
-        cur_y = [y, y]
-        for q in questions:
-            lines = _wrap(q["text"], FONT, Q_FONT_SIZE, col_width)
-            row_h = question_row_height(lines)
-            if cur_y[col] - row_h < bottom_limit:
+        cur_y = [y0, y0]
+        for p in prepared:
+            if cur_y[col] - p["row_h"] < bottom_limit:
                 col += 1
                 if col > 1:
                     col = 0
                     pages += 1
-                    cur_y = [PAGE_H - 170, PAGE_H - 170]
-            cur_y[col] -= row_h
+                    cur_y = [y0, y0]
+            cur_y[col] -= p["row_h"]
         return pages
 
-    total_pages = simulate() + (1 if flavor == "teacher" else 0)  # +1 for the trailing answer-key page (teacher only)
+    total_pages = simulate() + (1 if flavor == "teacher" else 0)
 
     page_num = 1
     col = 0
@@ -172,8 +256,7 @@ def render_exam_pdf(exam, flavor="student"):
     header_bottom = _draw_instructions(c, header_bottom, flavor)
 
     col_x = [left_x, left_x + col_width + COL_GAP]
-    col_top = header_bottom
-    cur_y = [col_top, col_top]
+    cur_y = [header_bottom, header_bottom]
 
     def new_page():
         nonlocal page_num, col, cur_y, header_bottom
@@ -186,61 +269,63 @@ def render_exam_pdf(exam, flavor="student"):
         col = 0
         cur_y = [header_bottom, header_bottom]
 
-    for q in questions:
-        lines = _wrap(q["text"], FONT, Q_FONT_SIZE, col_width)
-        row_h = question_row_height(lines)
-
-        if cur_y[col] - row_h < bottom_limit:
+    for q, p in zip(questions, prepared):
+        if cur_y[col] - p["row_h"] < bottom_limit:
             col += 1
             if col > 1:
                 new_page()
-            else:
-                pass
 
         x0 = col_x[col]
         y = cur_y[col]
 
+        first_line_h = p["text_images"][0][2] if p["text_images"] else Q_FONT_SIZE
+        label_offset = min(max(first_line_h * 0.78, Q_FONT_SIZE * 0.7), first_line_h * 0.92)
         c.setFont(FONT_BOLD, Q_FONT_SIZE)
-        c.drawString(x0, y, f"Q{q['number']}.")
-        c.setFont(FONT, Q_FONT_SIZE)
-        num_w = stringWidth(f"Q{q['number']}. ", FONT_BOLD, Q_FONT_SIZE)
-        for i, line in enumerate(lines):
-            tx = x0 + (num_w if i == 0 else 8)
-            c.drawString(tx, y - i * TEXT_LINE_H, line)
+        c.drawString(x0, y - label_offset, p["prefix"])
 
-        options_top = y - len(lines) * TEXT_LINE_H - GAP_TEXT_TO_OPTIONS
+        ty = y
+        for i, (png, w, h) in enumerate(p["text_images"]):
+            tx = x0 + (p["num_w"] if i == 0 else 8)
+            _draw_image(c, png, tx, ty, w, h)
+            ty -= h
 
+        if p["diagram_img"]:
+            ty -= GAP_TEXT_TO_DIAGRAM
+            _draw_image(c, p["diagram_img"], x0 + 4, ty, p["diagram_w"], p["diagram_h"])
+            ty -= p["diagram_h"] + GAP_AFTER_DIAGRAM
+        else:
+            ty -= GAP_TEXT_TO_OPTIONS
+
+        options_top = ty
         option_positions = {}
         letters = ["A", "B", "C", "D"]
         for i, letter in enumerate(letters):
             row = i // 2
             colpos = i % 2
             bx = x0 + 8 + colpos * (opt_col_width + 10)
-            by = options_top - row * OPTION_ROW_H
-            cx, cy = bx + BUBBLE_R, by
+            row_top = options_top if row == 0 else options_top - p["option_row_h"][0] - 4
+            cx = bx + BUBBLE_R
+            cy = row_top - BUBBLE_R
             c.setLineWidth(0.8)
             c.setStrokeColorRGB(0, 0, 0)
             is_correct = (letter == q["correct"])
             fill_this = flavor == "teacher" and is_correct
             c.circle(cx, cy, BUBBLE_R, stroke=1, fill=1 if fill_this else 0)
-            opt_text = f"{letter}. {q['options'][letter]}"
-            max_opt_w = opt_col_width - (2 * BUBBLE_R + 6)
-            opt_lines = _wrap(opt_text, FONT, OPT_FONT_SIZE, max_opt_w)
-            c.setFont(FONT, OPT_FONT_SIZE)
-            c.drawString(cx + BUBBLE_R + 5, cy - 3, opt_lines[0])
+
+            oy = row_top
+            for img_png, img_w, img_h in p["option_images"][letter]:
+                _draw_image(c, img_png, cx + BUBBLE_R + 5, oy, img_w, img_h)
+                oy -= img_h
+
             option_positions[letter] = list(_to_frac(cx, cy))
 
-        cur_y[col] = options_top - 2 * OPTION_ROW_H - GAP_AFTER_OPTIONS
+        cur_y[col] = options_top - p["option_row_h"][0] - 4 - p["option_row_h"][1] - GAP_AFTER_OPTIONS
 
         layout_questions[str(q["number"])] = {
             "page": page_num,
             "options": option_positions,
         }
 
-    # Trailing answer-key page (both flavors, so the teacher copy is
-    # self-contained; harmless duplication on the student copy since that
-    # copy is never distributed with answers... actually only include on
-    # teacher flavor)
     if flavor == "teacher":
         c.showPage()
         page_num += 1
@@ -255,7 +340,8 @@ def render_exam_pdf(exam, flavor="student"):
             row_i = i % 25
             x = MARGIN + col_i * col_w
             yy = y - row_i * 20
-            c.drawString(x, yy, f"Q{q['number']}: {q['correct']}  ({q['area_label']})")
+            marks = q.get("marks", 1)
+            c.drawString(x, yy, f"Q{q['number']}: {q['correct']}  ({marks} pt, {q['area_label']})")
 
     c.save()
     pdf_bytes = buf.getvalue()

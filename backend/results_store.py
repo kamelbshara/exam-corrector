@@ -17,11 +17,12 @@ def _exam_dir(exam_id):
     return d
 
 
-def save_result(exam_id, student_name, grading_result):
+def save_result(exam_id, student_name, grading_result, student_id=None):
     result_id = uuid.uuid4().hex[:10]
     record = {
         "result_id": result_id,
         "exam_id": exam_id,
+        "student_id": student_id,
         "student_name": (student_name or "").strip() or "Unnamed",
         "graded_at": datetime.now(timezone.utc).isoformat(),
         "result": grading_result,
@@ -30,6 +31,14 @@ def save_result(exam_id, student_name, grading_result):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(record, f, ensure_ascii=False, indent=2)
     return record
+
+
+def delete_result(exam_id, result_id):
+    path = os.path.join(_exam_dir(exam_id), f"{result_id}.json")
+    if not os.path.exists(path):
+        return False
+    os.remove(path)
+    return True
 
 
 def list_results(exam_id):

@@ -64,6 +64,29 @@ scope. The question bank has 20 questions per math area per cycle (240
 total), auto-generated with parametrized templates so every exam draws a
 fresh, non-repeating set.
 
+Every exam is worth **100 marks total**, however many questions it has
+(marks are apportioned per question via largest-remainder rounding, so
+they always sum to exactly 100). Question and option text carries inline
+LaTeX math (`$...$`) rendered as proper typeset math -- via MathJax in
+the browser preview (`backend/static/js/vendor/mathjax/`, bundled
+locally rather than loaded from a CDN, so the app works without external
+script dependencies) and via matplotlib mathtext in the printed PDF
+(`mathtext_render.py`). About 100 of the 240 questions (geometry,
+function, statistics, and calculus ones) also carry a generated diagram
+(`diagrams.py`) -- a labeled triangle, a coordinate plot, a function
+graph, a bar chart -- embedded the same way in both the PDF and the
+preview.
+
+## Class workflow
+
+On the Exam Corrector page, a teacher can optionally upload a class
+roster (`.xlsx`: column 1 = student name, column 2 = class/section) for
+an exam. Each correction can then be attached to a roster entry (via
+`student_id`) so the roster shows who's graded and who isn't; a wrong
+scan can be deleted from the results list and the student corrected
+again. Correcting without a roster still works via free-text student
+name, same as before.
+
 ## Running the backend
 
 ```bash

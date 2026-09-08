@@ -6,6 +6,9 @@ const resultCard = document.getElementById("result-card");
 const resultContent = document.getElementById("result-content");
 const examListEl = document.getElementById("exam-list");
 const generateBtn = document.getElementById("generate-btn");
+const previewCard = document.getElementById("preview-card");
+const previewContent = document.getElementById("preview-content");
+const showAnswersToggle = document.getElementById("show-answers-toggle");
 
 let gradesData = [];
 
@@ -72,6 +75,50 @@ async function loadExamList() {
   examListEl.innerHTML = html;
 }
 
+function areaBadgeClass(area) {
+  return "badge-area badge-area-" + area;
+}
+
+async function loadPreview(examId) {
+  previewContent.innerHTML = '<p class="muted small"><span class="spinner"></span> Loading preview...</p>';
+  previewCard.style.display = "block";
+  const res = await fetch(`/api/exams/${examId}/questions`);
+  if (!res.ok) {
+    previewContent.innerHTML = '<p class="alert alert-error">Could not load preview.</p>';
+    return;
+  }
+  const data = await res.json();
+  let html = `<p class="muted small">${data.school_name} - ${data.grade} - ${data.num_questions} questions - ${data.total_marks} marks total</p>`;
+  data.questions.forEach((q) => {
+    html += `<div class="preview-q" data-correct="${q.correct}">
+      <div class="preview-q-header">
+        <span class="preview-q-num">Q${q.number}.</span>
+        <span class="small muted">${q.area_label} &middot; ${q.marks} mark${q.marks !== 1 ? "s" : ""}</span>
+      </div>
+      <div class="preview-q-text">${q.text}</div>`;
+    if (q.diagram) {
+      html += `<img class="preview-diagram" src="data:image/png;base64,${q.diagram}" alt="diagram">`;
+    }
+    html += '<div class="preview-options">';
+    for (const letter of ["A", "B", "C", "D"]) {
+      const correctClass = letter === q.correct ? " preview-opt-correct" : "";
+      html += `<div class="preview-opt${correctClass}" data-letter="${letter}">${letter}. ${q.options[letter]}</div>`;
+    }
+    html += "</div></div>";
+  });
+  previewContent.innerHTML = html;
+  applyAnswerVisibility();
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise([previewContent]);
+  }
+}
+
+function applyAnswerVisibility() {
+  previewContent.classList.toggle("show-answers", showAnswersToggle.checked);
+}
+
+showAnswersToggle.addEventListener("change", applyAnswerVisibility);
+
 form.addEventListener("submit", async (ev) => {
   ev.preventDefault();
   errorBox.innerHTML = "";
@@ -102,7 +149,7 @@ form.addEventListener("submit", async (ev) => {
 
     resultContent.innerHTML = `
       <div class="alert alert-success">Exam generated for <strong>${data.school_name}</strong> - ${data.grade}</div>
-      <p><strong>Exam ID:</strong> <code>${data.exam_id}</code> &middot; ${data.num_questions} questions across ${data.num_pages} page(s)</p>
+      <p><strong>Exam ID:</strong> <code>${data.exam_id}</code> &middot; ${data.num_questions} questions across ${data.num_pages} page(s) &middot; <strong>${data.total_marks || 100} marks total</strong></p>
       <table><thead><tr><th>Area</th><th>Questions</th></tr></thead><tbody>${areaRows}</tbody></table>
       <div class="btn-row">
         <a class="btn btn-primary" href="${data.teacher_pdf_url}" target="_blank">Download Teacher Copy (with answers)</a>
@@ -114,6 +161,7 @@ form.addEventListener("submit", async (ev) => {
     resultCard.style.display = "block";
     resultCard.scrollIntoView({ behavior: "smooth" });
     loadExamList();
+    loadPreview(data.exam_id);
   } catch (e) {
     errorBox.innerHTML = `<div class="alert alert-error">Network error: ${e.message}</div>`;
   } finally {

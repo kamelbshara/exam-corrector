@@ -55,6 +55,20 @@ def grades_for_cycle(cycle: int):
     return [g for g, (c, _t, _w) in GRADES.items() if c == cycle]
 
 
+TOTAL_MARKS = 100
+
+
+def allocate_marks(num_questions: int):
+    """Largest-remainder apportionment of TOTAL_MARKS across num_questions,
+    so the exam is always out of 100 regardless of how many questions it
+    has. Returns a list of per-question integer marks summing to 100."""
+    if num_questions <= 0:
+        return []
+    base = TOTAL_MARKS // num_questions
+    remainder = TOTAL_MARKS % num_questions
+    return [base + 1 if i < remainder else base for i in range(num_questions)]
+
+
 def allocate_question_counts(grade: str, total_questions: int):
     """Largest-remainder apportionment of `total_questions` across the
     grade's weighted areas, so the split always sums exactly to total."""

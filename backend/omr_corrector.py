@@ -172,13 +172,17 @@ def grade_exam(exam, page_images: dict):
     per_question = []
     area_totals = {}
     correct_count = 0
+    total_marks = exam.get("total_marks", len(exam["questions"]))
+    marks_earned = 0
     for q in exam["questions"]:
         qnum = str(q["number"])
         detected = all_answers.get(qnum, {"selected": None, "fill_ratios": {}})
         selected = detected["selected"]
         is_correct = selected is not None and selected == q["correct"]
+        q_marks = q.get("marks", 1)
         if is_correct:
             correct_count += 1
+            marks_earned += q_marks
 
         area = q["area"]
         area_totals.setdefault(area, {"label": q["area_label"], "correct": 0, "total": 0})
@@ -190,6 +194,7 @@ def grade_exam(exam, page_images: dict):
             {
                 "number": q["number"],
                 "area": area,
+                "marks": q_marks,
                 "selected": selected,
                 "correct_answer": q["correct"],
                 "is_correct": is_correct,
@@ -198,7 +203,7 @@ def grade_exam(exam, page_images: dict):
         )
 
     total = len(exam["questions"])
-    percentage = round((correct_count / total) * 100, 1) if total else 0.0
+    percentage = round((marks_earned / total_marks) * 100, 1) if total_marks else 0.0
     sections = {}
     weak_areas = []
     for area, d in area_totals.items():
@@ -213,6 +218,8 @@ def grade_exam(exam, page_images: dict):
         "grade": exam["grade"],
         "num_questions": total,
         "correct": correct_count,
+        "marks_earned": marks_earned,
+        "total_marks": total_marks,
         "percentage": percentage,
         "level": _level_for(percentage),
         "sections": sections,

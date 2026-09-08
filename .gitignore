@@ -3,9 +3,10 @@ __pycache__/
 *.pyc
 .venv/
 
-# Generated runtime data (exams/results are created at runtime, not shipped)
+# Generated runtime data (exams/results/rosters are created at runtime, not shipped)
 backend/data/exams/*.json
 backend/data/results/*/
+backend/data/rosters/*.json
 
 # Flutter/Dart (platform folders + build output are scaffolded by CI)
 mobile/android/

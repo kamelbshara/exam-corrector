@@ -149,6 +149,38 @@ table th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transf
 
 .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
 
+.preview-toggle { float: right; font-weight: 500; cursor: pointer; user-select: none; }
+.preview-toggle input { margin-right: 4px; vertical-align: middle; }
+
+.preview-q {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.preview-q-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.preview-q-num { font-weight: 700; }
+.preview-q-text { margin-bottom: 8px; }
+.preview-diagram { display: block; max-width: 220px; max-height: 160px; margin: 6px 0 10px; }
+.preview-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+.preview-opt {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.show-answers .preview-opt { opacity: 0.55; }
+.show-answers .preview-opt-correct {
+  opacity: 1;
+  background: #d1fae5;
+  font-weight: 700;
+  outline: 1px solid #10b981;
+}
+
 .spinner {
   border: 3px solid #e2e5ee;
   border-top-color: var(--primary);

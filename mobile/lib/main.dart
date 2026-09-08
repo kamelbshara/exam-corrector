@@ -265,10 +265,10 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Text(
-                      '${result['percentage']}%',
+                      '${result['marks_earned'] ?? result['correct']} / ${result['total_marks'] ?? result['num_questions']}',
                       style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color(0xFF1F3A8A)),
                     ),
-                    Text('${result['correct']}/${result['num_questions']} correct'),
+                    Text('${result['percentage']}% · ${result['correct']}/${result['num_questions']} questions correct'),
                     const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
