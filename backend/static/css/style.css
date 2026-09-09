@@ -36,6 +36,24 @@ header.topbar .brand {
   font-size: 1.15rem;
 }
 
+.brand-group { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #34d399);
+  color: white;
+  font-weight: 800;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-name-ar { font-weight: 800; font-size: 1.05rem; }
+.brand-name-en { font-weight: 500; font-size: 0.72rem; opacity: 0.85; }
+
 header.topbar nav a {
   color: white;
   text-decoration: none;
@@ -195,4 +213,19 @@ table th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transf
 
 .muted { color: var(--muted); }
 .small { font-size: 0.82rem; }
-footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 20px; }
+footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 20px; }
+footer .footer-links { margin-bottom: 6px; }
+footer .footer-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+footer .footer-links a:hover { text-decoration: underline; }
+footer .footer-links .dot { margin: 0 8px; color: var(--border); }
+footer .footer-contact { margin-bottom: 6px; }
+footer .footer-contact a { color: var(--text); text-decoration: none; font-weight: 600; direction: ltr; display: inline-block; }
+footer .footer-note { opacity: 0.85; }
+
+.legal-page { line-height: 1.85; }
+.legal-page h1 { margin-bottom: 4px; }
+.legal-page .updated { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+.legal-page h2 { font-size: 1.05rem; margin-top: 24px; }
+.legal-page p, .legal-page li { color: var(--text); }
+.legal-page ul { padding-inline-start: 22px; }
+.legal-page[dir="rtl"] { text-align: right; }

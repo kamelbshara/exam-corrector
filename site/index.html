@@ -63,12 +63,43 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .feature { padding: 14px; border-radius: 10px; background: #eef1fb; }
   .feature strong { display: block; margin-bottom: 4px; color: var(--primary); }
-  footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 20px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px 20px; }
+  footer .footer-links { margin-bottom: 6px; }
+  footer .footer-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+  footer .footer-links a:hover { text-decoration: underline; }
+  footer .footer-links .dot { margin: 0 8px; color: var(--border); }
+  footer .footer-contact { margin-bottom: 6px; }
+  footer .footer-contact a { color: var(--text); text-decoration: none; font-weight: 600; direction: ltr; display: inline-block; }
   code { background: #eef1fb; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+  .brand-group { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), #34d399);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-name-ar { font-weight: 800; font-size: 1.02rem; }
+  .brand-name-en { font-weight: 500; font-size: 0.7rem; opacity: 0.85; }
 </style>
 </head>
 <body>
-<header class="topbar">Math Exam Generator &amp; Corrector</header>
+<header class="topbar">
+  <div class="brand-group">
+    <span class="brand-mark">ب</span>
+    <div class="brand-text">
+      <span class="brand-name-ar">بشارة</span>
+      <span class="brand-name-en">Bishara &middot; Math Exam Generator &amp; Corrector</span>
+    </div>
+  </div>
+</header>
 
 <main>
   <div class="hero">
@@ -117,7 +148,13 @@
   </div>
 </main>
 
-<footer>Source on <a href="https://github.com/kamelbshara/exam-corrector">GitHub</a></footer>
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">سياسة الخصوصية</a><span class="dot">&middot;</span><a href="terms.html">سياسة الاستخدام</a>
+  </div>
+  <div class="footer-contact">التواصل معنا: <a href="tel:0502837825">0502837825</a></div>
+  <div>&copy; بشارة &middot; Source on <a href="https://github.com/kamelbshara/exam-corrector">GitHub</a></div>
+</footer>
 
 <script>
   // Update this if Render assigns a different subdomain than expected.

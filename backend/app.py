@@ -37,6 +37,16 @@ def corrector_page():
     return render_template("corrector.html", apk_url=APK_DOWNLOAD_URL)
 
 
+@app.route("/privacy")
+def privacy_page():
+    return render_template("privacy.html", apk_url=APK_DOWNLOAD_URL)
+
+
+@app.route("/terms")
+def terms_page():
+    return render_template("terms.html", apk_url=APK_DOWNLOAD_URL)
+
+
 # ------------------------------------------------------------------ API ----
 @app.route("/api/grades", methods=["GET"])
 def api_grades():

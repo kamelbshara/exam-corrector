@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سياسة الخصوصية</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-group">
+    <span class="brand-mark">ب</span>
+    <div class="brand-text">
+      <span class="brand-name-ar">بشارة</span>
+      <span class="brand-name-en">Bishara &middot; Exam Generator &amp; Corrector</span>
+    </div>
+  </div>
+  <nav>
+    <a href="/">Exam Generator</a>
+    <a href="/corrector">Exam Corrector</a>
+    <a href="{{ apk_url }}" class="apk-link">Download App (APK)</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card legal-page" dir="rtl">
+    <h1>سياسة الخصوصية</h1>
+    <p class="updated">آخر تحديث: 2026</p>
+
+    <p>توضح هذه الصفحة كيفية تعامل منصة "بشارة" لتوليد وتصحيح الامتحانات مع البيانات التي يتم إدخالها أو رفعها أثناء استخدام الخدمة.</p>
+
+    <h2>1. البيانات التي نتعامل معها</h2>
+    <ul>
+      <li>اسم المدرسة، الصف الدراسي، وعدد الأسئلة عند توليد امتحان.</li>
+      <li>قائمة الطلاب (الاسم والصف/الشعبة) في حال رفع كشف الطلاب بصيغة Excel.</li>
+      <li>صور أوراق الإجابة التي يتم رفعها لغرض التصحيح الآلي (OMR).</li>
+      <li>نتائج التصحيح (الدرجات، النسب المئوية، تحليل نقاط الضعف حسب المحور).</li>
+    </ul>
+
+    <h2>2. كيفية استخدام البيانات</h2>
+    <p>تُستخدم هذه البيانات حصرًا لتوليد الامتحانات، وتصحيح أوراق الإجابة، وإصدار تقارير الأداء للمعلم/المدرسة. لا تُستخدم البيانات لأي غرض تسويقي، ولا تتم مشاركتها مع أي طرف ثالث.</p>
+
+    <h2>3. تخزين البيانات</h2>
+    <p>لا تتطلب المنصة إنشاء حساب أو تسجيل دخول. يتم حفظ الامتحانات وكشوف الطلاب والنتائج كملفات على الخادم الذي يشغّل التطبيق فقط، طوال مدة تشغيل الخدمة، وذلك لغرض السماح للمعلم بالرجوع إليها لاحقًا (مثل حذف نتيجة خاطئة وإعادة تصحيحها).</p>
+
+    <h2>4. أمان البيانات</h2>
+    <p>يتم بذل جهد معقول لحماية البيانات المخزّنة على الخادم. مع ذلك، ولأن الخدمة لا تتطلب تسجيل دخول، يجب على المدرسة/المعلم التعامل مع رابط الوصول للتطبيق بحذر وعدم مشاركته مع جهات غير معنية.</p>
+
+    <h2>5. حقوقك</h2>
+    <p>يمكن لأي معلم حذف أي نتيجة تصحيح أو كشف طلاب تم رفعه في أي وقت من خلال واجهة التطبيق. لطلب حذف بيانات إضافية أو الاستفسار عن أي نقطة تخص الخصوصية، يمكن التواصل معنا مباشرة.</p>
+
+    <h2>6. التواصل معنا</h2>
+    <p>لأي استفسار يخص هذه السياسة أو البيانات المخزّنة، يرجى التواصل على الرقم: <a href="tel:0502837825" style="font-weight:700;">0502837825</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/privacy">سياسة الخصوصية</a><span class="dot">&middot;</span><a href="/terms">سياسة الاستخدام</a>
+  </div>
+  <div class="footer-contact">التواصل معنا: <a href="tel:0502837825">0502837825</a></div>
+  <div class="footer-note">&copy; بشارة &middot; No login required &middot; Runs entirely on this server</div>
+</footer>
+</body>
+</html>

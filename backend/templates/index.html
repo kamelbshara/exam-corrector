@@ -12,7 +12,13 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">Math Exam Generator &amp; Corrector</div>
+  <div class="brand-group">
+    <span class="brand-mark">ب</span>
+    <div class="brand-text">
+      <span class="brand-name-ar">بشارة</span>
+      <span class="brand-name-en">Bishara &middot; Exam Generator &amp; Corrector</span>
+    </div>
+  </div>
   <nav>
     <a href="/" class="active">Exam Generator</a>
     <a href="/corrector">Exam Corrector</a>
@@ -67,7 +73,13 @@
   </div>
 </main>
 
-<footer>No login required &middot; Runs entirely on this server</footer>
+<footer>
+  <div class="footer-links">
+    <a href="/privacy">سياسة الخصوصية</a><span class="dot">&middot;</span><a href="/terms">سياسة الاستخدام</a>
+  </div>
+  <div class="footer-contact">التواصل معنا: <a href="tel:0502837825">0502837825</a></div>
+  <div class="footer-note">&copy; بشارة &middot; No login required &middot; Runs entirely on this server</div>
+</footer>
 
 <script src="{{ url_for('static', filename='js/generator.js') }}"></script>
 </body>
