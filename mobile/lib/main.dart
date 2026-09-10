@@ -26,7 +26,7 @@ class ExamCorrectorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'بشارة - Exam Corrector',
+      title: 'Question Generator - Diagnostic Test 2026/2027',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('بشارة - Exam Corrector'),
+        title: const Text('Question Generator 2026/2027'),
         backgroundColor: const Color(0xFF1F3A8A),
         foregroundColor: Colors.white,
       ),
