@@ -10,6 +10,8 @@ const resultContent = document.getElementById("result-content");
 const resultsListCard = document.getElementById("results-list-card");
 const resultsListEl = document.getElementById("results-list");
 const exportBtn = document.getElementById("export-btn");
+const classAnalysisCard = document.getElementById("class-analysis-card");
+const classAnalysisContent = document.getElementById("class-analysis-content");
 const studentNameInput = document.getElementById("student_name");
 const studentIdField = document.getElementById("student_id_field");
 const correctingForHint = document.getElementById("correcting-for-hint");
@@ -79,6 +81,7 @@ async function onExamSelected() {
   exportBtn.href = `/api/exams/${examId}/results/export`;
   loadResults(examId);
   loadRoster(examId);
+  loadClassAnalysis(examId);
 }
 
 examSelect.addEventListener("change", onExamSelected);
@@ -144,6 +147,7 @@ correctBtn.addEventListener("click", async () => {
     renderResult(data.result, data.student_name);
     loadResults(currentExam.exam_id);
     loadRoster(currentExam.exam_id);
+    loadClassAnalysis(currentExam.exam_id);
     clearStudentSelection();
     for (let p = 1; p <= currentExam.num_pages; p++) {
       const input = document.getElementById(`page_${p}`);
@@ -200,6 +204,54 @@ async function deleteResult(examId, resultId, label) {
   }
   loadResults(examId);
   loadRoster(examId);
+  loadClassAnalysis(examId);
+}
+
+async function loadClassAnalysis(examId) {
+  const res = await fetch(`/api/exams/${examId}/analysis`);
+  if (!res.ok) {
+    classAnalysisCard.style.display = "none";
+    return;
+  }
+  const a = await res.json();
+
+  const levelRows = Object.entries(a.level_distribution)
+    .map(([lvl, count]) => {
+      const pct = a.num_graded ? Math.round((count / a.num_graded) * 1000) / 10 : 0;
+      return `<tr><td><span class="${badgeClass(lvl)}">${lvl}</span></td><td>${count}</td><td>${pct}%</td></tr>`;
+    })
+    .join("");
+
+  const areaRows = a.areas
+    .map(
+      (ar) =>
+        `<tr${ar.is_gap ? ' style="background:#fee2e2;"' : ""}><td>${ar.label}</td><td>${ar.correct}/${ar.total}</td><td>${ar.percentage}%</td></tr>`
+    )
+    .join("");
+
+  const studentRows = a.students
+    .map(
+      (s) =>
+        `<tr><td>${s.student_name}</td><td>${s.marks_earned}/${s.total_marks} (${s.percentage}%)</td>
+         <td><span class="${badgeClass(s.level)}">${s.level}</span></td>
+         <td class="small">${s.weak_areas.length ? s.weak_areas.join(", ") : '<span class="muted">&mdash;</span>'}</td></tr>`
+    )
+    .join("");
+
+  classAnalysisContent.innerHTML = `
+    <div class="score-box">
+      <div class="pct">${a.class_average_marks} / ${a.total_marks}</div>
+      <div>Class average &middot; ${a.class_average_percentage}% &middot; ${a.num_graded} sheet(s) graded</div>
+    </div>
+    ${a.class_weak_areas.length ? `<div class="alert alert-error">Class-wide learning gap(s): ${a.class_weak_areas.join(", ")}</div>` : '<div class="alert alert-success">No class-wide learning gaps &mdash; every topic averages 70% or above.</div>'}
+    <h2 style="margin-top:18px;">Performance Level Distribution</h2>
+    <table><thead><tr><th>Level</th><th>Students</th><th>% of Class</th></tr></thead><tbody>${levelRows}</tbody></table>
+    <h2 style="margin-top:18px;">Learning Gap Analysis by Topic (weakest first)</h2>
+    <table><thead><tr><th>Area</th><th>Correct</th><th>Class Avg %</th></tr></thead><tbody>${areaRows}</tbody></table>
+    <h2 style="margin-top:18px;">Per-Student Level &amp; Learning Gaps (weakest first)</h2>
+    <table><thead><tr><th>Student</th><th>Score</th><th>Level</th><th>Weak Area(s)</th></tr></thead><tbody>${studentRows}</tbody></table>
+  `;
+  classAnalysisCard.style.display = "block";
 }
 
 async function loadResults(examId) {

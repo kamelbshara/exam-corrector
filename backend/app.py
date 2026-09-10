@@ -15,6 +15,7 @@ from omr_corrector import grade_exam, CorrectionError
 import results_store
 import roster_store
 import report
+from analysis import build_class_analysis
 
 app = Flask(__name__)
 CORS(app)
@@ -261,6 +262,20 @@ def api_delete_roster(exam_id):
         return jsonify({"error": "Exam not found"}), 404
     roster_store.delete_roster(exam_id)
     return jsonify({"deleted": True})
+
+
+@app.route("/api/exams/<exam_id>/analysis", methods=["GET"])
+def api_class_analysis(exam_id):
+    """Class-wide grade analysis: performance-level distribution and
+    per-topic class averages, to surface learning gaps shared across the
+    class on top of each student's own weak-area list."""
+    exam = exam_generator.load_exam(exam_id)
+    if not exam:
+        return jsonify({"error": "Exam not found"}), 404
+    records = results_store.list_results(exam_id)
+    if not records:
+        return jsonify({"error": "No corrected sheets yet for this exam"}), 400
+    return jsonify(build_class_analysis(exam, records))
 
 
 @app.route("/api/exams/<exam_id>/results/export", methods=["GET"])

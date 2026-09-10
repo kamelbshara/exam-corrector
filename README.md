@@ -87,6 +87,25 @@ scan can be deleted from the results list and the student corrected
 again. Correcting without a roster still works via free-text student
 name, same as before.
 
+### Grade analysis & learning gap reports
+
+Every corrected sheet already carries a per-student performance level
+(Advanced / Proficient / Acceptable / Needs Support) and a per-topic
+weak-area list (any area that student scored under 70% on). Once at
+least one sheet is graded, the Exam Corrector page also shows a **Class
+Grade Analysis** section (`analysis.py`, `GET
+/api/exams/<id>/analysis`) that aggregates every graded sheet for the
+exam into:
+
+- the class average score and performance-level distribution, and
+- a per-topic class average, sorted weakest first, flagging any topic
+  the *class as a whole* averages under 70% on -- a learning gap shared
+  across students, not just one individual.
+
+The same aggregation is baked into the exported Excel report
+(`report.py`) as a "Class Analysis" sheet, alongside the existing raw
+per-question grid and per-level summary.
+
 ## Running the backend
 
 ```bash
